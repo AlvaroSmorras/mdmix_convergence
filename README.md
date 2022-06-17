@@ -1,1 +1,2 @@
-# mdmix_convergence
+# MDMix convergence anlysis
+## How many nanoseconds should I run?
