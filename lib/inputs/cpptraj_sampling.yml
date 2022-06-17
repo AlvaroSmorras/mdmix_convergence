@@ -1,0 +1,23 @@
+# Generic input to generate cpptraj scripts sampling different trajectories
+- - -
+Grid: # If you don't know the grid center, put the origin.
+  - coordinates center: 9.5 11.0 -8.0
+  - coordinates origin: False
+  - steps:
+    - delta: 0.5
+    - dx: 156
+    - dy: 156
+    - dz: 156
+
+Data:
+  - replicas: 3
+  - nanoseconds: 100
+  - solvents:
+    -ETA: # specify here the probes you want to test and their mask
+      -CT: :ETA@C1
+      -OH: :ETA@O1
+      -WAT: :WAT@O
+
+Sampling:
+
+...
