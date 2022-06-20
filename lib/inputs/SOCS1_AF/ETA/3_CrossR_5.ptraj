@@ -1,8 +1,9 @@
-trajin raw_data/SOCS1_AF/ETA_2/md57.nc
-trajin raw_data/SOCS1_AF/ETA_2/md12.nc
-trajin raw_data/SOCS1_AF/ETA_3/md54.nc
-trajin raw_data/SOCS1_AF/ETA_2/md31.nc
-trajin raw_data/SOCS1_AF/ETA_3/md60.nc
+SOCS1_AF_ETA.prmtop
+trajin raw_data/SOCS1_AF/ETA_2/md76.nc
+trajin raw_data/SOCS1_AF/ETA_1/md97.nc
+trajin raw_data/SOCS1_AF/ETA_1/md59.nc
+trajin raw_data/SOCS1_AF/ETA_3/md37.nc
+trajin raw_data/SOCS1_AF/ETA_3/md22.nc
 grid 3_ETA_CT_CrossR_5.dx 156 0.5 156 0.5 156 0.5 gridcenter 9.5 11.0 -8.0 :ETA@C1
 grid 3_ETA_OH_CrossR_5.dx 156 0.5 156 0.5 156 0.5 gridcenter 9.5 11.0 -8.0 :ETA@O1
 grid 3_ETA_WAT_CrossR_5.dx 156 0.5 156 0.5 156 0.5 gridcenter 9.5 11.0 -8.0 :WAT@O

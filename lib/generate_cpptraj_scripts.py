@@ -5,8 +5,6 @@ import sys
 import yaml
 import os
 
-#globals
-grid_cmd_template = 'grid {out_dxname} {dx} {delta} {dy} {delta} {dz} {delta} gridcenter {center_coords} {mask}\n'
 
 
 
@@ -26,19 +24,21 @@ def parse_yaml(yaml_input):
 def mkdir_if_missing(dir):
     if not os.path.isdir(dir): os.mkdir(dir)
 def write_cpptraj_files(parameters, files_to_sample):
+    grid_cmd_template = 'grid {out_dxname} {dx} {delta} {dy} {delta} {dz} {delta} gridcenter {center_coords} {mask}\n'
     mkdir_if_missing(parameters['Sampling']['Output directory'])
-    for solvent in parameters['Data']['solvents']:
+    for s_i, solvent in enumerate(parameters['Data']['solvents']):
             if not solvent in parameters['Data']:
                 print('The probe masks for %s solvent have not been specified in the input' %solvent)
                 print('You need to add the mask values for the probes in your solvent')
                 exit(1)
             mkdir_if_missing('/'.join([parameters['Sampling']['Output directory'],solvent]))
             for sampling_n, sampling_f in files_to_sample[solvent].items():
-                for i, meta_replica in enumerate(sampling_f):
-                    with open('/'.join([parameters['Sampling']['Output directory'],solvent,'%s_'%(str(i+1))+sampling_n+ '.ptraj']), 'w') as out_file:
+                for r_i, meta_replica in enumerate(sampling_f):
+                    with open('/'.join([parameters['Sampling']['Output directory'],solvent,'%s_'%(str(r_i+1))+sampling_n+ '.ptraj']), 'w') as out_file:
+                        out_file.write('%s\n'%parameters['Data']['topologies'][s_i])
                         [out_file.write('trajin %s\n'%x) for x in meta_replica]
                         for probe, mask in parameters['Data'][solvent].items():
-                            out_file.write(grid_cmd_template.format(out_dxname='%s_%s_%s_%s.dx'%(str(i+1),solvent, probe, sampling_n),
+                            out_file.write(grid_cmd_template.format(out_dxname='%s_%s_%s_%s.dx'%(str(r_i+1),solvent, probe, sampling_n),
                                                                                 dx=parameters['Grid']['dx'],
                                                                                 dy=parameters['Grid']['dy'],
                                                                                 dz=parameters['Grid']['dz'],

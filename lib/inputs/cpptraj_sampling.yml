@@ -11,15 +11,21 @@ Data:
   - replicas: 3
   - nanoseconds: 100
   - data directory: raw_data/SOCS1_AF
+  - topologies: [SOCS1_AF_ETA.prmtop, SOCS1_AF_MAM.prmtop]
   - solvents: [ETA, MAM]
     ETA: # specify here the probes you want to test and their mask
       CT: :ETA@C1
       OH: :ETA@O1
       WAT: :WAT@O
+    MAM:
+      CT: :MAM@C2
+      N: :MAM@N1
+      O: :MAM@O1
+      WAT: :WAT@O
 
 Sampling:
   - Cross replica: True
   - Intra replica: False
-  - Meta-replicas: 3
-  - Sampling steps: 5 10 25 50 100 200 300
+  - Meta-replicas: 5
+  - Sampling steps: 5 10 25 50 100 150 200 250 300
   - Output directory: lib/inputs/SOCS1_AF
