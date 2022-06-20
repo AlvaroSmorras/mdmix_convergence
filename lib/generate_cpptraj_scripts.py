@@ -38,7 +38,8 @@ def write_cpptraj_files(parameters, files_to_sample):
                         out_file.write('%s\n'%parameters['Data']['topologies'][s_i])
                         [out_file.write('trajin %s\n'%x) for x in meta_replica]
                         for probe, mask in parameters['Data'][solvent].items():
-                            out_file.write(grid_cmd_template.format(out_dxname='%s_%s_%s_%s.dx'%(str(r_i+1),solvent, probe, sampling_n),
+                            out_file.write(grid_cmd_template.format(out_dxname='%s/%s_%s_%s_%s.dx'%(parameters['Sampling']['Output grids directory'],
+                                                                                                    str(r_i+1),solvent, probe, sampling_n),
                                                                                 dx=parameters['Grid']['dx'],
                                                                                 dy=parameters['Grid']['dy'],
                                                                                 dz=parameters['Grid']['dz'],
