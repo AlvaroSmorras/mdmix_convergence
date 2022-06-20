@@ -1,55 +1,55 @@
 SOCS1_AF_MAM.prmtop
-trajin raw_data/SOCS1_AF/MAM_2/md93.nc
-trajin raw_data/SOCS1_AF/MAM_1/md58.nc
-trajin raw_data/SOCS1_AF/MAM_3/md56.nc
-trajin raw_data/SOCS1_AF/MAM_3/md96.nc
-trajin raw_data/SOCS1_AF/MAM_1/md51.nc
-trajin raw_data/SOCS1_AF/MAM_2/md58.nc
-trajin raw_data/SOCS1_AF/MAM_2/md7.nc
-trajin raw_data/SOCS1_AF/MAM_2/md42.nc
-trajin raw_data/SOCS1_AF/MAM_2/md60.nc
-trajin raw_data/SOCS1_AF/MAM_2/md88.nc
-trajin raw_data/SOCS1_AF/MAM_1/md82.nc
-trajin raw_data/SOCS1_AF/MAM_2/md4.nc
-trajin raw_data/SOCS1_AF/MAM_3/md4.nc
-trajin raw_data/SOCS1_AF/MAM_1/md40.nc
-trajin raw_data/SOCS1_AF/MAM_2/md31.nc
-trajin raw_data/SOCS1_AF/MAM_3/md16.nc
-trajin raw_data/SOCS1_AF/MAM_2/md34.nc
-trajin raw_data/SOCS1_AF/MAM_1/md63.nc
-trajin raw_data/SOCS1_AF/MAM_3/md50.nc
-trajin raw_data/SOCS1_AF/MAM_2/md26.nc
-trajin raw_data/SOCS1_AF/MAM_3/md66.nc
-trajin raw_data/SOCS1_AF/MAM_2/md98.nc
-trajin raw_data/SOCS1_AF/MAM_1/md74.nc
-trajin raw_data/SOCS1_AF/MAM_2/md5.nc
-trajin raw_data/SOCS1_AF/MAM_1/md14.nc
-trajin raw_data/SOCS1_AF/MAM_2/md99.nc
-trajin raw_data/SOCS1_AF/MAM_2/md17.nc
-trajin raw_data/SOCS1_AF/MAM_3/md21.nc
-trajin raw_data/SOCS1_AF/MAM_3/md46.nc
-trajin raw_data/SOCS1_AF/MAM_3/md14.nc
-trajin raw_data/SOCS1_AF/MAM_3/md29.nc
-trajin raw_data/SOCS1_AF/MAM_1/md9.nc
-trajin raw_data/SOCS1_AF/MAM_2/md80.nc
-trajin raw_data/SOCS1_AF/MAM_3/md28.nc
-trajin raw_data/SOCS1_AF/MAM_3/md27.nc
-trajin raw_data/SOCS1_AF/MAM_1/md84.nc
-trajin raw_data/SOCS1_AF/MAM_1/md50.nc
+trajin raw_data/SOCS1_AF/MAM_1/md94.nc
 trajin raw_data/SOCS1_AF/MAM_2/md95.nc
-trajin raw_data/SOCS1_AF/MAM_3/md40.nc
-trajin raw_data/SOCS1_AF/MAM_3/md38.nc
-trajin raw_data/SOCS1_AF/MAM_1/md17.nc
-trajin raw_data/SOCS1_AF/MAM_3/md18.nc
-trajin raw_data/SOCS1_AF/MAM_1/md87.nc
-trajin raw_data/SOCS1_AF/MAM_3/md79.nc
-trajin raw_data/SOCS1_AF/MAM_2/md48.nc
-trajin raw_data/SOCS1_AF/MAM_1/md53.nc
-trajin raw_data/SOCS1_AF/MAM_1/md85.nc
-trajin raw_data/SOCS1_AF/MAM_2/md78.nc
-trajin raw_data/SOCS1_AF/MAM_3/md33.nc
+trajin raw_data/SOCS1_AF/MAM_1/md60.nc
+trajin raw_data/SOCS1_AF/MAM_1/md49.nc
+trajin raw_data/SOCS1_AF/MAM_1/md57.nc
+trajin raw_data/SOCS1_AF/MAM_2/md23.nc
+trajin raw_data/SOCS1_AF/MAM_2/md62.nc
+trajin raw_data/SOCS1_AF/MAM_3/md90.nc
 trajin raw_data/SOCS1_AF/MAM_2/md96.nc
-grid dgrids/SOCS1_AF/3_MAM_CT_CrossR_50.dx 156 0.5 156 0.5 156 0.5 gridcenter 9.5 11.0 -8.0 :MAM@C2
-grid dgrids/SOCS1_AF/3_MAM_N_CrossR_50.dx 156 0.5 156 0.5 156 0.5 gridcenter 9.5 11.0 -8.0 :MAM@N1
-grid dgrids/SOCS1_AF/3_MAM_O_CrossR_50.dx 156 0.5 156 0.5 156 0.5 gridcenter 9.5 11.0 -8.0 :MAM@O1
-grid dgrids/SOCS1_AF/3_MAM_WAT_CrossR_50.dx 156 0.5 156 0.5 156 0.5 gridcenter 9.5 11.0 -8.0 :WAT@O
+trajin raw_data/SOCS1_AF/MAM_1/md44.nc
+trajin raw_data/SOCS1_AF/MAM_1/md40.nc
+trajin raw_data/SOCS1_AF/MAM_3/md98.nc
+trajin raw_data/SOCS1_AF/MAM_3/md53.nc
+trajin raw_data/SOCS1_AF/MAM_2/md64.nc
+trajin raw_data/SOCS1_AF/MAM_3/md87.nc
+trajin raw_data/SOCS1_AF/MAM_1/md87.nc
+trajin raw_data/SOCS1_AF/MAM_2/md22.nc
+trajin raw_data/SOCS1_AF/MAM_3/md73.nc
+trajin raw_data/SOCS1_AF/MAM_1/md21.nc
+trajin raw_data/SOCS1_AF/MAM_3/md47.nc
+trajin raw_data/SOCS1_AF/MAM_3/md35.nc
+trajin raw_data/SOCS1_AF/MAM_2/md85.nc
+trajin raw_data/SOCS1_AF/MAM_2/md38.nc
+trajin raw_data/SOCS1_AF/MAM_3/md30.nc
+trajin raw_data/SOCS1_AF/MAM_2/md66.nc
+trajin raw_data/SOCS1_AF/MAM_2/md48.nc
+trajin raw_data/SOCS1_AF/MAM_3/md77.nc
+trajin raw_data/SOCS1_AF/MAM_3/md41.nc
+trajin raw_data/SOCS1_AF/MAM_1/md58.nc
+trajin raw_data/SOCS1_AF/MAM_2/md3.nc
+trajin raw_data/SOCS1_AF/MAM_2/md36.nc
+trajin raw_data/SOCS1_AF/MAM_1/md68.nc
+trajin raw_data/SOCS1_AF/MAM_1/md78.nc
+trajin raw_data/SOCS1_AF/MAM_2/md11.nc
+trajin raw_data/SOCS1_AF/MAM_2/md82.nc
+trajin raw_data/SOCS1_AF/MAM_2/md74.nc
+trajin raw_data/SOCS1_AF/MAM_2/md24.nc
+trajin raw_data/SOCS1_AF/MAM_3/md75.nc
+trajin raw_data/SOCS1_AF/MAM_1/md16.nc
+trajin raw_data/SOCS1_AF/MAM_2/md53.nc
+trajin raw_data/SOCS1_AF/MAM_2/md47.nc
+trajin raw_data/SOCS1_AF/MAM_2/md97.nc
+trajin raw_data/SOCS1_AF/MAM_1/md72.nc
+trajin raw_data/SOCS1_AF/MAM_1/md3.nc
+trajin raw_data/SOCS1_AF/MAM_1/md100.nc
+trajin raw_data/SOCS1_AF/MAM_1/md64.nc
+trajin raw_data/SOCS1_AF/MAM_2/md51.nc
+trajin raw_data/SOCS1_AF/MAM_3/md93.nc
+trajin raw_data/SOCS1_AF/MAM_2/md84.nc
+trajin raw_data/SOCS1_AF/MAM_3/md14.nc
+grid dgrids/SOCS1_AF/MAM/3_MAM_CT_CrossR_50.dx 156 0.5 156 0.5 156 0.5 gridcenter 9.5 11.0 -8.0 :MAM@C2
+grid dgrids/SOCS1_AF/MAM/3_MAM_N_CrossR_50.dx 156 0.5 156 0.5 156 0.5 gridcenter 9.5 11.0 -8.0 :MAM@N1
+grid dgrids/SOCS1_AF/MAM/3_MAM_O_CrossR_50.dx 156 0.5 156 0.5 156 0.5 gridcenter 9.5 11.0 -8.0 :MAM@O1
+grid dgrids/SOCS1_AF/MAM/3_MAM_WAT_CrossR_50.dx 156 0.5 156 0.5 156 0.5 gridcenter 9.5 11.0 -8.0 :WAT@O
