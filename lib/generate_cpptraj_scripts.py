@@ -35,7 +35,7 @@ def write_cpptraj_files(parameters, files_to_sample):
             for sampling_n, sampling_f in files_to_sample[solvent].items():
                 for r_i, meta_replica in enumerate(sampling_f):
                     with open('/'.join([parameters['Sampling']['Output directory'],solvent,'%s_'%(str(r_i+1))+sampling_n+ '.ptraj']), 'w') as out_file:
-                        out_file.write('%s\n'%parameters['Data']['topologies'][s_i])
+                        out_file.write('parm %s/%s\n'%(parameters['Data']['data directory'],parameters['Data']['topologies'][s_i]))
                         [out_file.write('trajin %s\n'%x) for x in meta_replica]
                         for probe, mask in parameters['Data'][solvent].items():
                             out_file.write(grid_cmd_template.format(out_dxname='%s/%s/%s_%s_%s_%s.dx'%(parameters['Sampling']['Output grids directory'], solvent,
