@@ -45,6 +45,15 @@ def initialite_traj_pool(data_parameters, check_files = False):
             files[solvent].append(r)
     return files
 
+def get_grid_center(grid_parameters):
+    # Auxiliar function to calculate the grid center from the grid origin, the steps to each side and the delta
+    xo, yo, zo = grid_parameters['coordinates origin'].split()
+    xc = float(xo)+(int(grid_parameters['dx'])*float(grid_parameters['delta'])/2)
+    yc = float(yo)+(int(grid_parameters['dy'])*float(grid_parameters['delta'])/2)
+    zc = float(zo)+(int(grid_parameters['dz'])*float(grid_parameters['delta'])/2)
+    r = '%s %s %s' %(xc, yc, zc)
+    return r
+
 def create_sampling(sampling_parameters, trajectory_files):
     # Create the partially sampled lists of trajectories depending on the input
     r = {}
@@ -71,8 +80,11 @@ def create_sampling(sampling_parameters, trajectory_files):
 def write_cpptraj_files(parameters, files_to_sample):
     # Main loop function to write the cpptraj input files 
     # template to format, do we want to normalize? Check!
-    grid_cmd_template = 'grid {out_dxname} {dx} {delta} {dy} {delta} {dz} {delta} gridcenter {center_coords} {mask}\n' 
+    grid_cmd_template = 'grid {out_dxname} {dx} {delta} {dy} {delta} {dz} {delta} gridcenter {center_coords} {mask} normframe\n' 
     mkdir_if_missing(parameters['Sampling']['Output directory'])
+    # cpptraj needs the grid center, so if input has only origin, we can calculate the center
+    if not parameters['Grid']['coordinates center'] and parameters['Grid']['coordinates origin']:
+        parameters['Grid']['coordinates center'] = get_grid_center(parameters['Grid'])
     for s_i, solvent in enumerate(parameters['Data']['solvents']):
             if not solvent in parameters['Data']:
                 # Is it better to specify it on the input or have a dictionary?

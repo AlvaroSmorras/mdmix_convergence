@@ -1,7 +1,7 @@
 # Generic input to generate cpptraj scripts sampling different trajectories
 Grid: # If you don't know the grid center, put the origin.
-  - coordinates center: 9.5 11.0 -8.0
-  - coordinates origin: False
+  - coordinates center: False
+  - coordinates origin: 25.00 1.50 207.50
   - delta: 0.5
   - dx: 156
   - dy: 156
@@ -11,15 +11,19 @@ Data:
   - replicas: 3
   - nanoseconds: 100
   - data directory: raw_data/PFKFB3_6HVI
-  - topologies: 
-  - solvents: [ETA, PYR5]
+  - topologies: [PFKFB3_6HVI_CLE.prmtop, PFKFB3_6HVI_ETA.prmtop, PFKFB3_6HVI_PYR5.prmtop]
+  - solvents: [ETA, PYR5, CLE]
     ETA: # specify here the probes you want to test and their mask
       CT: :ETA@C1
       OH: :ETA@O1
       WAT: :WAT@O
     PYR5:
-      CA: :PYR5@C2
-      N: :PYR5@N1
+      CA: :PYR@C1,C2,C3,C4,C5
+      N: :PYR@N1
+      WAT: :WAT@O
+    CLE:
+      CL: :CLE@CL1
+      OH: :CLE@O1
       WAT: :PYR5@O
 
 Sampling:

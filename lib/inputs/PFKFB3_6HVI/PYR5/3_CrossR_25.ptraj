@@ -1,0 +1,29 @@
+parm raw_data/PFKFB3_6HVI/PFKFB3_6HVI_ETA.prmtop
+trajin raw_data/PFKFB3_6HVI/PYR5_1/md53.nc
+trajin raw_data/PFKFB3_6HVI/PYR5_1/md1.nc
+trajin raw_data/PFKFB3_6HVI/PYR5_2/md41.nc
+trajin raw_data/PFKFB3_6HVI/PYR5_1/md98.nc
+trajin raw_data/PFKFB3_6HVI/PYR5_1/md93.nc
+trajin raw_data/PFKFB3_6HVI/PYR5_3/md63.nc
+trajin raw_data/PFKFB3_6HVI/PYR5_3/md38.nc
+trajin raw_data/PFKFB3_6HVI/PYR5_3/md9.nc
+trajin raw_data/PFKFB3_6HVI/PYR5_2/md33.nc
+trajin raw_data/PFKFB3_6HVI/PYR5_1/md9.nc
+trajin raw_data/PFKFB3_6HVI/PYR5_3/md35.nc
+trajin raw_data/PFKFB3_6HVI/PYR5_1/md24.nc
+trajin raw_data/PFKFB3_6HVI/PYR5_3/md33.nc
+trajin raw_data/PFKFB3_6HVI/PYR5_3/md77.nc
+trajin raw_data/PFKFB3_6HVI/PYR5_1/md58.nc
+trajin raw_data/PFKFB3_6HVI/PYR5_2/md75.nc
+trajin raw_data/PFKFB3_6HVI/PYR5_2/md96.nc
+trajin raw_data/PFKFB3_6HVI/PYR5_3/md17.nc
+trajin raw_data/PFKFB3_6HVI/PYR5_1/md25.nc
+trajin raw_data/PFKFB3_6HVI/PYR5_3/md76.nc
+trajin raw_data/PFKFB3_6HVI/PYR5_1/md88.nc
+trajin raw_data/PFKFB3_6HVI/PYR5_3/md61.nc
+trajin raw_data/PFKFB3_6HVI/PYR5_2/md15.nc
+trajin raw_data/PFKFB3_6HVI/PYR5_1/md39.nc
+trajin raw_data/PFKFB3_6HVI/PYR5_1/md47.nc
+grid dgrids/PFKFB3_6HVI/PYR5/3_PYR5_CA_CrossR_25.dx 156 0.5 156 0.5 156 0.5 gridcenter 64.0 40.5 246.5 :PYR@C1,C2,C3,C4,C5 normframe
+grid dgrids/PFKFB3_6HVI/PYR5/3_PYR5_N_CrossR_25.dx 156 0.5 156 0.5 156 0.5 gridcenter 64.0 40.5 246.5 :PYR@N1 normframe
+grid dgrids/PFKFB3_6HVI/PYR5/3_PYR5_WAT_CrossR_25.dx 156 0.5 156 0.5 156 0.5 gridcenter 64.0 40.5 246.5 :WAT@O normframe
