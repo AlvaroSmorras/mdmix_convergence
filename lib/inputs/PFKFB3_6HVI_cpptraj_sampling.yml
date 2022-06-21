@@ -11,7 +11,7 @@ Data:
   - replicas: 3
   - nanoseconds: 100
   - data directory: raw_data/PFKFB3_6HVI
-  - topologies: [PFKFB3_6HVI_CLE.prmtop, PFKFB3_6HVI_ETA.prmtop, PFKFB3_6HVI_PYR5.prmtop]
+  - topologies: [PFKFB3_6HVI_ETA.prmtop, PFKFB3_6HVI_PYR5.prmtop, PFKFB3_6HVI_CLE.prmtop]
   - solvents: [ETA, PYR5, CLE]
     ETA: # specify here the probes you want to test and their mask
       CT: :ETA@C1
