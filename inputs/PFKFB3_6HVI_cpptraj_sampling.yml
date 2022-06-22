@@ -31,5 +31,5 @@ Sampling:
   - Intra replica: False
   - Meta-replicas: 5
   - Sampling steps: [5, 10, 25, 50, 100, 150, 200, 250]
-  - Output directory: lib/inputs/PFKFB3_6HVI
+  - Output directory: inputs/PFKFB3_6HVI
   - Output grids directory: dgrids/PFKFB3_6HVI

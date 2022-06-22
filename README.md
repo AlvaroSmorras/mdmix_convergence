@@ -23,7 +23,7 @@ First of all we need to create the density/energy grids using increasingly big n
 
 We'll calculate the density grids using cpptraj, so first we will generate the input files.
 ```{bash}
-python lib/generate_cpptraj_scripts.py lib/inputs/cpptraj_sampling.yml
+python lib/generate_cpptraj_scripts.py inputs/{system}\_cpptraj_sampling.yml
 ```
 
 The input yaml file has the following format (i'll show the one for SOCS1_AF with detailed explanation as an example)
@@ -67,11 +67,11 @@ Sampling:
   - Meta-replicas: 5
   # Increasing the sampling to the max number of trajectories without replacement is redundant. 
   - Sampling steps: [5, 10, 25, 50, 100, 150, 200, 250] 
-  - Output directory: lib/inputs/SOCS1_AF
+  - Output directory: inputs/SOCS1_AF
   - Output grids directory: dgrids/SOCS1_AF
 ```
 
-Once we have the input files, its time to launch cpptraj to obtain the files. The filesystem will have the following structure: lib/inputs/{system}/{solvent}/{metareplica}\_{sampling_method}\_{nanoseconds}.ptraj
+Once we have the input files, its time to launch cpptraj to obtain the files. The filesystem will have the following structure: inputs/{system}/{solvent}/{metareplica}\_{sampling_method}\_{nanoseconds}.ptraj
 ```{bash}
-for input in lib/inputs/*/*/*ptraj; do cpptraj -i $input; done
+for input in inputs/*/*/*ptraj; do cpptraj -i $input; done
 ```
