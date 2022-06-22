@@ -1,12 +1,12 @@
 parm raw_data/p62-ZZ_6KHZ/p62-ZZ_6KHZ_WAT.prmtop
-trajin raw_data/p62-ZZ_6KHZ/WAT_2/md53.nc
-trajin raw_data/p62-ZZ_6KHZ/WAT_1/md16.nc
-trajin raw_data/p62-ZZ_6KHZ/WAT_1/md51.nc
-trajin raw_data/p62-ZZ_6KHZ/WAT_2/md61.nc
-trajin raw_data/p62-ZZ_6KHZ/WAT_2/md36.nc
-trajin raw_data/p62-ZZ_6KHZ/WAT_2/md81.nc
-trajin raw_data/p62-ZZ_6KHZ/WAT_1/md162.nc
-trajin raw_data/p62-ZZ_6KHZ/WAT_2/md8.nc
-trajin raw_data/p62-ZZ_6KHZ/WAT_2/md155.nc
-trajin raw_data/p62-ZZ_6KHZ/WAT_2/md106.nc
+trajin raw_data/p62-ZZ_6KHZ/WAT_1/md187.nc
+trajin raw_data/p62-ZZ_6KHZ/WAT_2/md97.nc
+trajin raw_data/p62-ZZ_6KHZ/WAT_3/md91.nc
+trajin raw_data/p62-ZZ_6KHZ/WAT_2/md199.nc
+trajin raw_data/p62-ZZ_6KHZ/WAT_2/md114.nc
+trajin raw_data/p62-ZZ_6KHZ/WAT_3/md76.nc
+trajin raw_data/p62-ZZ_6KHZ/WAT_3/md169.nc
+trajin raw_data/p62-ZZ_6KHZ/WAT_1/md140.nc
+trajin raw_data/p62-ZZ_6KHZ/WAT_2/md94.nc
+trajin raw_data/p62-ZZ_6KHZ/WAT_2/md145.nc
 grid dgrids/p62-ZZ_6KHZ/WAT/3_WAT_WAT_CrossR_10.dx 110 0.5 110 0.5 110 0.5 gridcenter 6.5 3.0 11.5 :WAT@O normframe
