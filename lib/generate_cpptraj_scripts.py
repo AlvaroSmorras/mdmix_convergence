@@ -125,7 +125,7 @@ def write_cpptraj_files(parameters, files_to_sample, complete_sampling=False):
                                                                             delta=parameters['Grid']['delta'],
                                                                             center_coords=parameters['Grid']['coordinates center'],
                                                                             mask=mask,
-                                                                            pdb_name=' pdb top_density_%s_%s.pdb'%(solvent, probe)))
+                                                                            pdb_name=' pdb %s/%s/top_density_%s_%s.pdb'%(parameters['Sampling']['Output grids directory'], solvent,solvent, probe)))
 
 if __name__ == '__main__':
     #Check usage
