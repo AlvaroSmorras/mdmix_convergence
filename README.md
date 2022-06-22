@@ -63,7 +63,7 @@ Sampling:
   - Output grids directory: dgrids/SOCS1_AF
 ```
 
-Once we have the input files, its time to launch cpptraj to obtain the files. The filesystem will have the following structure: lib/inputs/{system}/{solvent}/{metareplica}_{sampling_method}_{nanoseconds}.ptraj
+Once we have the input files, its time to launch cpptraj to obtain the files. The filesystem will have the following structure: lib/inputs/{system}/{solvent}/{metareplica}\_{sampling_method}\_{nanoseconds}.ptraj
 ```{bash}
 for input in lib/inputs/*/*/*ptraj; do cpptraj -i $input; done
 ```
