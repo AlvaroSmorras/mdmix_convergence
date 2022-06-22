@@ -15,7 +15,7 @@ Data available at the moment:
 |--------|----------|-------------|----------|----------------|
 | [SOCS1 ~ AlphaFold2](https://www.uniprot.org/uniprot/O15524) | ETA, MAM | 100 | 3 | 211 |
 | [PFKFB3 ~ 6HVI](https://www.uniprot.org/uniprot/Q16875) | ETA, CLE, PYR5 | 100 | 3 | 446 |
-| [p62 ZZ-Domain ~ 6KHZ](https://www.uniprot.org/uniprot/Q13501) | ETA, ION5, WAT | 200 | 56 |
+| [p62 ZZ-Domain ~ 6KHZ](https://www.uniprot.org/uniprot/Q13501) | ETA, ION5, WAT | 200 | 3 | 56 |
 
 
 ### Step 1. Creating the density and energy grids
