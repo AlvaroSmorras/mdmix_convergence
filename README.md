@@ -61,10 +61,11 @@ Data:
 Sampling:
   # Pool all trajectories from replicas together
   - Cross replica: True 
-  # Separate the replicas. To see how the densities evolve in time. Ideally from Uniform distribution to concentrated hotspots.
+  # Separate the replicas. To see how the densities evolve in time.
+  # Ideally from Uniform distribution to concentrated hotspots.
   - Intra replica: False 
   - Meta-replicas: 5
-  # If 300 ns is the whole sampling population, increasing the sampling to 300 ns without replacement is redundant. 
+  # Increasing the sampling to the max number of trajectories without replacement is redundant. 
   - Sampling steps: [5, 10, 25, 50, 100, 150, 200, 250] 
   - Output directory: lib/inputs/SOCS1_AF
   - Output grids directory: dgrids/SOCS1_AF
