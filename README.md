@@ -30,7 +30,9 @@ The input yaml file has the following format (i'll show the one for SOCS1_AF wit
 
 ```{yaml}
 # Generic input to generate cpptraj scripts sampling different trajectories
-Grid: # If you don't know the grid center, put the origin. Cpptraj uses the grid center, but then the dx specify the origin.
+Grid: 
+  # If you don't know the grid center, put the origin.
+  # cpptraj uses the grid center, but then the dx specify the origin.
   - coordinates center: 9.5 11.0 -8.0
   - coordinates origin: False
   - delta: 0.5 # suposed to be equal across 3 dimensions
@@ -42,9 +44,11 @@ Data:
   - replicas: 3
   - nanoseconds: 100
   - data directory: raw_data/SOCS1_AF
-  - topologies: [SOCS1_AF_ETA.prmtop, SOCS1_AF_MAM.prmtop] # list of the topologies to pair with the solvents. Please maintain the same order.
+  - topologies: [SOCS1_AF_ETA.prmtop, SOCS1_AF_MAM.prmtop]
+   # list of the topologies to pair with the solvents. Please maintain the same order.
   - solvents: [ETA, MAM] # list of the solvents to lookfor
-    ETA: # specify here the probes you want to test and their mask
+  # specify here the probes you want to test and their mask
+    ETA: 
       CT: :ETA@C1
       OH: :ETA@O1
       WAT: :WAT@O
@@ -55,10 +59,13 @@ Data:
       WAT: :WAT@O
 
 Sampling:
-  - Cross replica: True # Pool all trajectories from replicas together
-  - Intra replica: False # Separate the replicas. To see how the densities evolve in time. Ideally from Uniform distribution to concentrated hotspots.
+  # Pool all trajectories from replicas together
+  - Cross replica: True 
+  # Separate the replicas. To see how the densities evolve in time. Ideally from Uniform distribution to concentrated hotspots.
+  - Intra replica: False 
   - Meta-replicas: 5
-  - Sampling steps: [5, 10, 25, 50, 100, 150, 200, 250] # 300 ns is the whole sampling population. Thus sampling without replacement all 300 ns is redundant. 
+  # If 300 ns is the whole sampling population, increasing the sampling to 300 ns without replacement is redundant. 
+  - Sampling steps: [5, 10, 25, 50, 100, 150, 200, 250] 
   - Output directory: lib/inputs/SOCS1_AF
   - Output grids directory: dgrids/SOCS1_AF
 ```
