@@ -1,14 +1,14 @@
 parm raw_data/PFKFB3_6HVI/PFKFB3_6HVI_ETA.prmtop
-trajin raw_data/PFKFB3_6HVI/ETA_2/md37.nc
-trajin raw_data/PFKFB3_6HVI/ETA_1/md4.nc
-trajin raw_data/PFKFB3_6HVI/ETA_1/md87.nc
-trajin raw_data/PFKFB3_6HVI/ETA_2/md53.nc
-trajin raw_data/PFKFB3_6HVI/ETA_2/md64.nc
-trajin raw_data/PFKFB3_6HVI/ETA_3/md28.nc
-trajin raw_data/PFKFB3_6HVI/ETA_2/md79.nc
-trajin raw_data/PFKFB3_6HVI/ETA_1/md72.nc
-trajin raw_data/PFKFB3_6HVI/ETA_1/md40.nc
-trajin raw_data/PFKFB3_6HVI/ETA_3/md52.nc
+trajin raw_data/PFKFB3_6HVI/ETA_1/md54.nc
+trajin raw_data/PFKFB3_6HVI/ETA_3/md20.nc
+trajin raw_data/PFKFB3_6HVI/ETA_1/md42.nc
+trajin raw_data/PFKFB3_6HVI/ETA_1/md41.nc
+trajin raw_data/PFKFB3_6HVI/ETA_1/md31.nc
+trajin raw_data/PFKFB3_6HVI/ETA_2/md21.nc
+trajin raw_data/PFKFB3_6HVI/ETA_2/md42.nc
+trajin raw_data/PFKFB3_6HVI/ETA_1/md81.nc
+trajin raw_data/PFKFB3_6HVI/ETA_2/md45.nc
+trajin raw_data/PFKFB3_6HVI/ETA_2/md6.nc
 grid dgrids/PFKFB3_6HVI/ETA/1_ETA_CT_CrossR_10.dx 228 0.5 228 0.5 228 0.5 gridcenter 82.0 58.5 264.5 :ETA@C1 normframe
 grid dgrids/PFKFB3_6HVI/ETA/1_ETA_OH_CrossR_10.dx 228 0.5 228 0.5 228 0.5 gridcenter 82.0 58.5 264.5 :ETA@O1 normframe
 grid dgrids/PFKFB3_6HVI/ETA/1_ETA_WAT_CrossR_10.dx 228 0.5 228 0.5 228 0.5 gridcenter 82.0 58.5 264.5 :WAT@O normframe

@@ -1,14 +1,14 @@
 parm raw_data/SOCS1_AF/SOCS1_AF_MAM.prmtop
-trajin raw_data/SOCS1_AF/MAM_3/md16.nc
-trajin raw_data/SOCS1_AF/MAM_3/md63.nc
-trajin raw_data/SOCS1_AF/MAM_3/md17.nc
-trajin raw_data/SOCS1_AF/MAM_3/md64.nc
-trajin raw_data/SOCS1_AF/MAM_2/md81.nc
-trajin raw_data/SOCS1_AF/MAM_2/md30.nc
-trajin raw_data/SOCS1_AF/MAM_1/md64.nc
-trajin raw_data/SOCS1_AF/MAM_3/md70.nc
-trajin raw_data/SOCS1_AF/MAM_1/md96.nc
-trajin raw_data/SOCS1_AF/MAM_1/md75.nc
+trajin raw_data/SOCS1_AF/MAM_1/md9.nc
+trajin raw_data/SOCS1_AF/MAM_1/md17.nc
+trajin raw_data/SOCS1_AF/MAM_2/md21.nc
+trajin raw_data/SOCS1_AF/MAM_1/md99.nc
+trajin raw_data/SOCS1_AF/MAM_1/md48.nc
+trajin raw_data/SOCS1_AF/MAM_2/md47.nc
+trajin raw_data/SOCS1_AF/MAM_2/md100.nc
+trajin raw_data/SOCS1_AF/MAM_1/md40.nc
+trajin raw_data/SOCS1_AF/MAM_2/md26.nc
+trajin raw_data/SOCS1_AF/MAM_3/md73.nc
 grid dgrids/SOCS1_AF/MAM/4_MAM_CT_CrossR_10.dx 156 0.5 156 0.5 156 0.5 gridcenter 9.5 11.0 -8.0 :MAM@C2 normframe
 grid dgrids/SOCS1_AF/MAM/4_MAM_N_CrossR_10.dx 156 0.5 156 0.5 156 0.5 gridcenter 9.5 11.0 -8.0 :MAM@N1 normframe
 grid dgrids/SOCS1_AF/MAM/4_MAM_O_CrossR_10.dx 156 0.5 156 0.5 156 0.5 gridcenter 9.5 11.0 -8.0 :MAM@O1 normframe

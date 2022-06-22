@@ -299,3 +299,6 @@ trajin raw_data/PFKFB3_6HVI/ETA_3/md97.nc
 trajin raw_data/PFKFB3_6HVI/ETA_3/md98.nc
 trajin raw_data/PFKFB3_6HVI/ETA_3/md99.nc
 trajin raw_data/PFKFB3_6HVI/ETA_3/md100.nc
+grid dgrids/PFKFB3_6HVI/ETA/full_sampling_ETA_CT_300.dx 228 0.5 228 0.5 228 0.5 gridcenter 82.0 58.5 264.5 :ETA@C1 normframe
+grid dgrids/PFKFB3_6HVI/ETA/full_sampling_ETA_OH_300.dx 228 0.5 228 0.5 228 0.5 gridcenter 82.0 58.5 264.5 :ETA@O1 normframe
+grid dgrids/PFKFB3_6HVI/ETA/full_sampling_ETA_WAT_300.dx 228 0.5 228 0.5 228 0.5 gridcenter 82.0 58.5 264.5 :WAT@O normframe
