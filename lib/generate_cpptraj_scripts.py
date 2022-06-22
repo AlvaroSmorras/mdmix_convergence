@@ -57,7 +57,7 @@ def get_grid_center(grid_parameters):
 def create_sampling(sampling_parameters, trajectory_files):
     # Create the partially sampled lists of trajectories depending on the input
     r = {}
-    partial_steps = sorted([int(x) for x in sampling_parameters['Sampling steps'].split()])
+    partial_steps = sorted([int(x) for x in sampling_parameters['Sampling steps']])
     for solvent, replicas in trajectory_files.items():
             if sampling_parameters['Cross replica']: # merge the pool of trajectories from the replicas
                 merged_trajectory_pool = flatten_list_of_lists(replicas)
@@ -65,6 +65,7 @@ def create_sampling(sampling_parameters, trajectory_files):
                     print('Sampling steps are higher than the acumulated steps with all replicas.')
                     exit(1)
                 for partial_sample in partial_steps:
+                    # Is no replace good? or i'm increasing the sampling artificially
                     sample_files = [np.random.choice(merged_trajectory_pool, size=partial_sample, replace=False)
                                                                     for mr in range(sampling_parameters['Meta-replicas'])]
                     r.setdefault(solvent, dict())['CrossR_'+str(partial_sample)] = sample_files
