@@ -113,6 +113,16 @@ def write_cpptraj_files(parameters, files_to_sample, complete_sampling=False):
                 with open('/'.join([parameters['Sampling']['Output directory'],solvent,'full_sampling_'+str(len(all_trajs))+'.ptraj']), 'w') as out_file:
                     out_file.write('parm %s/%s\n'%(parameters['Data']['data directory'],parameters['Data']['topologies'][s_i]))
                     [out_file.write('trajin %s\n'%x) for x in all_trajs]
+                    for probe, mask in parameters['Data'][solvent].items():
+                        # A single readin of the trajectories will create all the probe grids, shoud I resample acroos probes too?
+                        out_file.write(grid_cmd_template.format(out_dxname='%s/%s/%s_%s_%s_%s.dx'%(parameters['Sampling']['Output grids directory'], solvent,
+                                                                                                str(r_i+1),solvent, probe, sampling_n),
+                                                                            dx=parameters['Grid']['dx'],
+                                                                            dy=parameters['Grid']['dy'],
+                                                                            dz=parameters['Grid']['dz'],
+                                                                            delta=parameters['Grid']['delta'],
+                                                                            center_coords=parameters['Grid']['coordinates center'],
+                                                                            mask=mask))
 
 
 
