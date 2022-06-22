@@ -28,5 +28,5 @@ Sampling:
   - Intra replica: False
   - Meta-replicas: 5
   - Sampling steps: [5, 10, 25, 50, 100, 150, 200, 250]
-  - Output directory: lib/inputs/SOCS1_AF
+  - Output directory: inputs/SOCS1_AF
   - Output grids directory: dgrids/SOCS1_AF
