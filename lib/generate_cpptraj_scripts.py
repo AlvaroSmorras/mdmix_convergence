@@ -82,6 +82,7 @@ def write_cpptraj_files(parameters, files_to_sample, complete_sampling=False):
     # Main loop function to write the cpptraj input files 
     # template to format, do we want to normalize? Check!
     grid_cmd_template = 'grid {out_dxname} {dx} {delta} {dy} {delta} {dz} {delta} gridcenter {center_coords} {mask} normframe\n' 
+    grid_cmd_template_pdb = 'grid {out_dxname} {dx} {delta} {dy} {delta} {dz} {delta} gridcenter {center_coords} {mask} normframe pdb {pdb_name}\n' 
     
     mkdir_if_missing(parameters['Sampling']['Output directory'])
     # cpptraj needs the grid center, so if input has only origin, we can calculate the center
@@ -116,16 +117,15 @@ def write_cpptraj_files(parameters, files_to_sample, complete_sampling=False):
                     [out_file.write('trajin %s\n'%x) for x in all_trajs]
                     for probe, mask in parameters['Data'][solvent].items():
                         # A single readin of the trajectories will create all the probe grids, shoud I resample acroos probes too?
-                        out_file.write(grid_cmd_template.format(out_dxname='%s/%s/full_sampling_%s_%s_%s.dx'%(parameters['Sampling']['Output grids directory'], solvent,
+                        out_file.write(grid_cmd_template_pdb.format(out_dxname='%s/%s/full_sampling_%s_%s_%s.dx'%(parameters['Sampling']['Output grids directory'], solvent,
                                                                                 solvent, probe,str(len(all_trajs))),
                                                                             dx=parameters['Grid']['dx'],
                                                                             dy=parameters['Grid']['dy'],
                                                                             dz=parameters['Grid']['dz'],
                                                                             delta=parameters['Grid']['delta'],
                                                                             center_coords=parameters['Grid']['coordinates center'],
-                                                                            mask=mask)+' pdb top_density_%s_%s.pdb'%(solvent, probe))
-
-
+                                                                            mask=mask,
+                                                                            pdb_name=' pdb top_density_%s_%s.pdb\n'%(solvent, probe))
 
 if __name__ == '__main__':
     #Check usage
