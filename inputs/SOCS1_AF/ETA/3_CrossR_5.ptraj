@@ -1,0 +1,9 @@
+parm raw_data/SOCS1_AF/SOCS1_AF_ETA.prmtop
+trajin raw_data/SOCS1_AF/ETA_3/md24.nc
+trajin raw_data/SOCS1_AF/ETA_1/md80.nc
+trajin raw_data/SOCS1_AF/ETA_2/md76.nc
+trajin raw_data/SOCS1_AF/ETA_2/md26.nc
+trajin raw_data/SOCS1_AF/ETA_1/md47.nc
+grid dgrids/SOCS1_AF/ETA/3_ETA_CT_CrossR_5.dx 156 0.5 156 0.5 156 0.5 gridcenter 9.5 11.0 -8.0 :ETA@C1 normframe
+grid dgrids/SOCS1_AF/ETA/3_ETA_OH_CrossR_5.dx 156 0.5 156 0.5 156 0.5 gridcenter 9.5 11.0 -8.0 :ETA@O1 normframe
+grid dgrids/SOCS1_AF/ETA/3_ETA_WAT_CrossR_5.dx 156 0.5 156 0.5 156 0.5 gridcenter 9.5 11.0 -8.0 :WAT@O normframe
