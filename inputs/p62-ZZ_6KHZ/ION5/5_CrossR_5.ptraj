@@ -1,9 +1,9 @@
 parm raw_data/p62-ZZ_6KHZ/p62-ZZ_6KHZ_ION5.prmtop
-trajin raw_data/p62-ZZ_6KHZ/ION5_2/md162.nc
-trajin raw_data/p62-ZZ_6KHZ/ION5_3/md18.nc
-trajin raw_data/p62-ZZ_6KHZ/ION5_2/md100.nc
-trajin raw_data/p62-ZZ_6KHZ/ION5_2/md79.nc
-trajin raw_data/p62-ZZ_6KHZ/ION5_1/md127.nc
+trajin raw_data/p62-ZZ_6KHZ/ION5_2/md145.nc
+trajin raw_data/p62-ZZ_6KHZ/ION5_3/md55.nc
+trajin raw_data/p62-ZZ_6KHZ/ION5_3/md75.nc
+trajin raw_data/p62-ZZ_6KHZ/ION5_3/md102.nc
+trajin raw_data/p62-ZZ_6KHZ/ION5_3/md20.nc
 grid dgrids/p62-ZZ_6KHZ/ION5/5_ION5_NEG_CrossR_5.dx 110 0.5 110 0.5 110 0.5 gridcenter 6.5 3.0 11.5 :COO@O1,O2 normframe
 grid dgrids/p62-ZZ_6KHZ/ION5/5_ION5_POS_CrossR_5.dx 110 0.5 110 0.5 110 0.5 gridcenter 6.5 3.0 11.5 :CN3@N1 normframe
 grid dgrids/p62-ZZ_6KHZ/ION5/5_ION5_WAT_CrossR_5.dx 110 0.5 110 0.5 110 0.5 gridcenter 6.5 3.0 11.5 :WAT@O normframe
