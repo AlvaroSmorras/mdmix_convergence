@@ -82,6 +82,7 @@ def write_cpptraj_files(parameters, files_to_sample, complete_sampling=False):
     # Main loop function to write the cpptraj input files 
     # template to format, do we want to normalize? Check!
     grid_cmd_template = 'grid {out_dxname} {dx} {delta} {dy} {delta} {dz} {delta} gridcenter {center_coords} {mask} normframe\n' 
+    
     mkdir_if_missing(parameters['Sampling']['Output directory'])
     # cpptraj needs the grid center, so if input has only origin, we can calculate the center
     if not parameters['Grid']['coordinates center'] and parameters['Grid']['coordinates origin']:
@@ -122,7 +123,7 @@ def write_cpptraj_files(parameters, files_to_sample, complete_sampling=False):
                                                                             dz=parameters['Grid']['dz'],
                                                                             delta=parameters['Grid']['delta'],
                                                                             center_coords=parameters['Grid']['coordinates center'],
-                                                                            mask=mask))
+                                                                            mask=mask)+' pdb top_density_%s_%s.pdb'%(solvent, probe))
 
 
 
