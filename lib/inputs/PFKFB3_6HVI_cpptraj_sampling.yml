@@ -3,9 +3,9 @@ Grid: # If you don't know the grid center, put the origin.
   - coordinates center: False
   - coordinates origin: 25.00 1.50 207.50
   - delta: 0.5
-  - dx: 156
-  - dy: 156
-  - dz: 156
+  - dx: 228
+  - dy: 228
+  - dz: 228
 
 Data:
   - replicas: 3
@@ -30,6 +30,6 @@ Sampling:
   - Cross replica: True
   - Intra replica: False
   - Meta-replicas: 5
-  - Sampling steps: 5 10 25 50 100 150 200 250 300
+  - Sampling steps: [5, 10, 25, 50, 100, 150, 200, 250]
   - Output directory: lib/inputs/PFKFB3_6HVI
   - Output grids directory: dgrids/PFKFB3_6HVI

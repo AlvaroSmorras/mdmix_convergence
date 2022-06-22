@@ -1,0 +1,33 @@
+# Generic input to generate cpptraj scripts sampling different trajectories
+Grid: # If you don't know the grid center, put the origin.
+  - coordinates center: 6.5 3.0 11.5
+  - coordinates origin: False
+  - delta: 0.5
+  - dx: 110
+  - dy: 110
+  - dz: 110
+
+Data:
+  - replicas: 3
+  - nanoseconds: 100
+  - data directory: raw_data/p62-ZZ_6KHZ
+  - topologies: [p62-ZZ_6KHZ_ETA.prmtop, p62-ZZ_6KHZ_ION5.prmtop, p62-ZZ_6KHZ_WAT.prmtop]
+  - solvents: [ETA, ION5, WAT]
+    ETA: # specify here the probes you want to test and their mask
+      CT: :ETA@C1
+      OH: :ETA@O1
+      WAT: :WAT@O
+    ION5:
+      NEG: :COO@O1,O2
+      POS: :CN3@N1
+      WAT: :WAT@O
+    WAT:
+      WAT: :WAT@O
+
+Sampling:
+  - Cross replica: True
+  - Intra replica: False
+  - Meta-replicas: 5
+  - Sampling steps: [5, 10, 25, 50, 100, 150, 200, 300, 400, 500]
+  - Output directory: lib/inputs/p62-ZZ_6KHZ
+  - Output grids directory: dgrids/p62-ZZ_6KHZ
