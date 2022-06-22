@@ -9,7 +9,7 @@ Grid: # If you don't know the grid center, put the origin.
 
 Data:
   - replicas: 3
-  - nanoseconds: 100
+  - nanoseconds: 200
   - data directory: raw_data/p62-ZZ_6KHZ
   - topologies: [p62-ZZ_6KHZ_ETA.prmtop, p62-ZZ_6KHZ_ION5.prmtop, p62-ZZ_6KHZ_WAT.prmtop]
   - solvents: [ETA, ION5, WAT]

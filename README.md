@@ -7,33 +7,34 @@ This small project aims to answer some of this questions and to provide real dat
 
 ### Step 0. Test MDMix trajectories
 The project will use a sample of mdmix trajectories from different proteins, solvents and lengths with the aim to cover as much as variability as possible.
-Ideally we would have absurdily long MDMix simulations (i.e. >500 ns per replica) for each solvent. As I don't have this data at the moment, i'll leave all the code here so the analysis can be extended in the future.
+Ideally we would have absurdily long MDMix simulations (i.e. >500 ns per replica) for each solvent. As I don't have this data at the moment, i'll leave all the code here so the analysis can be extended to other systems and solvents in the future.
 
 Data available at the moment:
 
-| System | Solvents | Nanoseconds | Replicas |
-|--------|----------|-------------|----------|
-| [SOCS1 ~ AlphaFold2](https://www.uniprot.org/uniprot/O15524) | ETA, MAM | 100 | 3 |
-| [PFKFB3 ~ 6HVI](https://www.uniprot.org/uniprot/Q16875) | ETA, CLE, PYR5 | 100 | 3 |
-| [p62 ZZ-Domain ~ 6KHZ](https://www.uniprot.org/uniprot/Q13501) | ETA, ION5, WAT | 200 | 3 |
+| System | Solvents | Nanoseconds | Replicas | Prot Size (aa) |
+|--------|----------|-------------|----------|----------------|
+| [SOCS1 ~ AlphaFold2](https://www.uniprot.org/uniprot/O15524) | ETA, MAM | 100 | 3 | 211 |
+| [PFKFB3 ~ 6HVI](https://www.uniprot.org/uniprot/Q16875) | ETA, CLE, PYR5 | 100 | 3 | 446 |
+| [p62 ZZ-Domain ~ 6KHZ](https://www.uniprot.org/uniprot/Q13501) | ETA, ION5, WAT | 200 | 56 |
 
 
 ### Step 1. Creating the density and energy grids
 First of all we need to create the density/energy grids using increasingly big number of trajectories.
 
+We'll calculate the density grids using cpptraj, so first we will generate the input files.
 ```{bash}
 python lib/generate_cpptraj_scripts.py lib/inputs/cpptraj_sampling.yml
 ```
 
-The input yaml file has the following format (i'll show the one for SOCS1_AF as an example)
+The input yaml file has the following format (i'll show the one for SOCS1_AF with detailed explanation as an example)
 
 ```{yaml}
 # Generic input to generate cpptraj scripts sampling different trajectories
-Grid: # If you don't know the grid center, put the origin.
+Grid: # If you don't know the grid center, put the origin. Cpptraj uses the grid center, but then the dx specify the origin.
   - coordinates center: 9.5 11.0 -8.0
   - coordinates origin: False
-  - delta: 0.5
-  - dx: 156
+  - delta: 0.5 # suposed to be equal across 3 dimensions
+  - dx: 156 # I separated the steps for each dimension as some boxes can be prismatic
   - dy: 156
   - dz: 156
 
@@ -41,8 +42,8 @@ Data:
   - replicas: 3
   - nanoseconds: 100
   - data directory: raw_data/SOCS1_AF
-  - topologies: [SOCS1_AF_ETA.prmtop, SOCS1_AF_MAM.prmtop]
-  - solvents: [ETA, MAM]
+  - topologies: [SOCS1_AF_ETA.prmtop, SOCS1_AF_MAM.prmtop] # list of the topologies to pair with the solvents. Please maintain the same order.
+  - solvents: [ETA, MAM] # list of the solvents to lookfor
     ETA: # specify here the probes you want to test and their mask
       CT: :ETA@C1
       OH: :ETA@O1
@@ -54,10 +55,15 @@ Data:
       WAT: :WAT@O
 
 Sampling:
-  - Cross replica: True
-  - Intra replica: False
+  - Cross replica: True # Pool all trajectories from replicas together
+  - Intra replica: False # Separate the replicas. To see how the densities evolve in time. Ideally from Uniform distribution to concentrated hotspots.
   - Meta-replicas: 5
-  - Sampling steps: 5 10 25 50 100 150 200 250 300
+  - Sampling steps: [5, 10, 25, 50, 100, 150, 200, 250] # 300 ns is the whole sampling population. Thus sampling without replacement all 300 ns is redundant. 
   - Output directory: lib/inputs/SOCS1_AF
   - Output grids directory: dgrids/SOCS1_AF
+```
+
+Once we have the input files, its time to launch cpptraj to obtain the files. The filesystem will have the following structure: lib/inputs/{system}/{solvent}/{metareplica}_{sampling_method}_{nanoseconds}.ptraj
+```{bash}
+for input in lib/inputs/*/*/*ptraj; do cpptraj -i $input; done
 ```
