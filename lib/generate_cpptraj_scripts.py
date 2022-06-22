@@ -78,7 +78,7 @@ def create_sampling(sampling_parameters, trajectory_files):
                     r.setdefault(solvent, dict())['IntraR_'+str(partial_sample)] = sample_files
     return r
 
-def write_cpptraj_files(parameters, files_to_sample):
+def write_cpptraj_files(parameters, files_to_sample, complete_sampling=False):
     # Main loop function to write the cpptraj input files 
     # template to format, do we want to normalize? Check!
     grid_cmd_template = 'grid {out_dxname} {dx} {delta} {dy} {delta} {dz} {delta} gridcenter {center_coords} {mask} normframe\n' 
@@ -108,6 +108,13 @@ def write_cpptraj_files(parameters, files_to_sample):
                                                                                 delta=parameters['Grid']['delta'],
                                                                                 center_coords=parameters['Grid']['coordinates center'],
                                                                                 mask=mask))
+            if complete_sampling:
+                all_trajs = flatten_list_of_lists(complete_sampling[solvent])
+                with open('/'.join([parameters['Sampling']['Output directory'],solvent,'full_sampling_'+str(len(all_trajs))+'.ptraj']), 'w') as out_file:
+                    out_file.write('parm %s/%s\n'%(parameters['Data']['data directory'],parameters['Data']['topologies'][s_i]))
+                    [out_file.write('trajin %s\n'%x) for x in all_trajs]
+
+
 
 if __name__ == '__main__':
     #Check usage
@@ -119,5 +126,5 @@ if __name__ == '__main__':
     parameters = parse_yaml(yaml_input) # Parse input
     trajectory_files = initialite_traj_pool(parameters['Data']) # Where are the trajectories?
     files_to_sample = create_sampling(parameters['Sampling'], trajectory_files) # Lets create the sampling 
-    write_cpptraj_files(parameters, files_to_sample) # write the inputs for cpptraj
+    write_cpptraj_files(parameters, files_to_sample, complete_sampling=trajectory_files) # write the inputs for cpptraj
 
