@@ -299,6 +299,6 @@ trajin raw_data/PFKFB3_6HVI/PYR5_3/md97.nc
 trajin raw_data/PFKFB3_6HVI/PYR5_3/md98.nc
 trajin raw_data/PFKFB3_6HVI/PYR5_3/md99.nc
 trajin raw_data/PFKFB3_6HVI/PYR5_3/md100.nc
-grid dgrids/PFKFB3_6HVI/PYR5/full_sampling_PYR5_CA_300.dx 228 0.5 228 0.5 228 0.5 gridcenter 82.0 58.5 264.5 :PYR@C1,C2,C3,C4,C5 normframe pdb  pdb dgrids/PFKFB3_6HVI/PYR5/top_density_PYR5_CA.pdb
-grid dgrids/PFKFB3_6HVI/PYR5/full_sampling_PYR5_N_300.dx 228 0.5 228 0.5 228 0.5 gridcenter 82.0 58.5 264.5 :PYR@N1 normframe pdb  pdb dgrids/PFKFB3_6HVI/PYR5/top_density_PYR5_N.pdb
-grid dgrids/PFKFB3_6HVI/PYR5/full_sampling_PYR5_WAT_300.dx 228 0.5 228 0.5 228 0.5 gridcenter 82.0 58.5 264.5 :WAT@O normframe pdb  pdb dgrids/PFKFB3_6HVI/PYR5/top_density_PYR5_WAT.pdb
+grid dgrids/PFKFB3_6HVI/PYR5/full_sampling_PYR5_CA_300.dx 228 0.5 228 0.5 228 0.5 gridcenter 82.0 58.5 264.5 :PYR@C1,C2,C3,C4,C5 normframe pdb dgrids/PFKFB3_6HVI/PYR5/top_density_PYR5_CA.pdb
+grid dgrids/PFKFB3_6HVI/PYR5/full_sampling_PYR5_N_300.dx 228 0.5 228 0.5 228 0.5 gridcenter 82.0 58.5 264.5 :PYR@N1 normframe pdb dgrids/PFKFB3_6HVI/PYR5/top_density_PYR5_N.pdb
+grid dgrids/PFKFB3_6HVI/PYR5/full_sampling_PYR5_WAT_300.dx 228 0.5 228 0.5 228 0.5 gridcenter 82.0 58.5 264.5 :WAT@O normframe pdb dgrids/PFKFB3_6HVI/PYR5/top_density_PYR5_WAT.pdb

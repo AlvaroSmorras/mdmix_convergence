@@ -1,14 +1,14 @@
 parm raw_data/p62-ZZ_6KHZ/p62-ZZ_6KHZ_ETA.prmtop
-trajin raw_data/p62-ZZ_6KHZ/ETA_3/md53.nc
-trajin raw_data/p62-ZZ_6KHZ/ETA_3/md138.nc
-trajin raw_data/p62-ZZ_6KHZ/ETA_2/md155.nc
-trajin raw_data/p62-ZZ_6KHZ/ETA_2/md38.nc
-trajin raw_data/p62-ZZ_6KHZ/ETA_2/md42.nc
-trajin raw_data/p62-ZZ_6KHZ/ETA_1/md113.nc
-trajin raw_data/p62-ZZ_6KHZ/ETA_1/md131.nc
-trajin raw_data/p62-ZZ_6KHZ/ETA_2/md120.nc
-trajin raw_data/p62-ZZ_6KHZ/ETA_2/md73.nc
-trajin raw_data/p62-ZZ_6KHZ/ETA_1/md11.nc
+trajin raw_data/p62-ZZ_6KHZ/ETA_3/md173.nc
+trajin raw_data/p62-ZZ_6KHZ/ETA_2/md92.nc
+trajin raw_data/p62-ZZ_6KHZ/ETA_3/md129.nc
+trajin raw_data/p62-ZZ_6KHZ/ETA_2/md185.nc
+trajin raw_data/p62-ZZ_6KHZ/ETA_2/md172.nc
+trajin raw_data/p62-ZZ_6KHZ/ETA_1/md133.nc
+trajin raw_data/p62-ZZ_6KHZ/ETA_3/md17.nc
+trajin raw_data/p62-ZZ_6KHZ/ETA_2/md6.nc
+trajin raw_data/p62-ZZ_6KHZ/ETA_2/md71.nc
+trajin raw_data/p62-ZZ_6KHZ/ETA_3/md58.nc
 grid dgrids/p62-ZZ_6KHZ/ETA/3_ETA_CT_CrossR_10.dx 110 0.5 110 0.5 110 0.5 gridcenter 6.5 3.0 11.5 :ETA@C1 normframe
 grid dgrids/p62-ZZ_6KHZ/ETA/3_ETA_OH_CrossR_10.dx 110 0.5 110 0.5 110 0.5 gridcenter 6.5 3.0 11.5 :ETA@O1 normframe
 grid dgrids/p62-ZZ_6KHZ/ETA/3_ETA_WAT_CrossR_10.dx 110 0.5 110 0.5 110 0.5 gridcenter 6.5 3.0 11.5 :WAT@O normframe
