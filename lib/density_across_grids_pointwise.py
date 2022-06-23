@@ -12,6 +12,11 @@ import os
 import pandas as pd
 import glob
 
+
+def mkdir_if_missing(dir):
+    # Auxiliar function to create directories
+    if not os.path.isdir(dir): os.mkdir(dir)
+
 def parse_hotspots_from_pdb(file):
     # Cutre-function to parse the pdb with highest densities
     # Will crash if coordinates are very big and columns merge
@@ -46,13 +51,13 @@ def cluster_data_KDTree(a, thr=0.1):
         idx += nxt
     return a[mask]
 
-def cluster_hotspots(hotspot_dict):
+def cluster_hotspots(hotspot_dict, distance_threshold):
     # function to cluster the hotspots based on distance and to recover them formated
     # This is necessary because cpptraj gives many points close to each other and makes for redundant assessments
     # With this we might want to increase the threshold of density to something lower than 80% of the max
     cmatrix = np.array([x['coords'] for x in hotspot_dict])
     #dmatrix = np.array([[np.linalg.norm(i-j) for i in cmatrix] for j in cmatrix])
-    cluster = cluster_data_KDTree(cmatrix, thr=2)
+    cluster = cluster_data_KDTree(cmatrix, thr=distance_threshold)
     cluster_indexes = [np.where((cmatrix == vect).all(axis=1))[0][0] for vect in cluster]
     cluster_d = {}
     for i, ci in enumerate(cluster_indexes):
@@ -77,7 +82,7 @@ def density_in_grid_on_cluster_points(grid, cluster_d ):
         densities[clust_name] = density
     return densities
 
-def iterate_grids_and_clusters(grid_paths, clusters_d):
+def iterate_grids_and_clusters(grid_paths, cluster_d):
     # now I need this grid to be repeated n times, one for each cluster
     names = [x.split('/')[-1] for x in grid_paths]
     dgrid_dir = '/'.join(grid_paths[0].split('/')[:-1])
@@ -103,17 +108,36 @@ def iterate_grids_and_clusters(grid_paths, clusters_d):
     base_df.sort_index(inplace=True)
     return base_df
 
+def parse_yaml(yaml_input):
+    import yaml
+    # Function to parse input yaml
+    # It also merges the different dictionaries from each block together
+    with open(yaml_input) as file:
+        parameters = yaml.load(file, Loader=yaml.FullLoader)
+    
+    return parameters
+
+def iterate_solvents_and_probes(parameters):
+    mkdir_if_missing(parameters['output directory'])
+    for solvent in parameters['solvents']:
+        dgrids_folder = parameters['input folder'] + solvent +'/'
+        for probe in parameters[solvent]:
+            hotspots_file = dgrids_folder+f'top_density_{solvent}_{probe}.pdb'
+            hotspots = parse_hotspots_from_pdb(hotspots_file)
+            cluster_d = cluster_hotspots(hotspots, distance_threshold=parameters['hotspot clustering distance threshold'])
+            grid_paths = glob.glob(dgrids_folder+f'/*{solvent}_{probe}*dx')
+            densities_dataframe = iterate_grids_and_clusters(grid_paths, cluster_d)
+            densities_dataframe.to_csv(parameters['output directory']+parameters['output prefix']+f'_{solvent}_{probe}.csv')
+
+
+            
+
 if __name__=='__main__':
-    #sys.argv[1]
-    
-    ### params
-    dgrids_folder = 'dgrids/SOCS1_AF/ETA/'
-    ###
-    
-    hotspots = parse_hotspots_from_pdb(dgrids_folder+'top_density_ETA_CT.pdb')
-    cluster_d = cluster_hotspots(hotspots)
-    #cluster_to_pseudoatoms(cluster_d)
-    grid_paths = glob.glob(dgrids_folder+'/*ETA_CT*dx')
-    densities_dataframe = iterate_grids_and_clusters(grid_paths, cluster_d)
-    print(densities_dataframe)
-    densities_dataframe.to_csv('outputs/SOCS1_AF_ETA_CT.csv')
+        #Check usage
+    if len(sys.argv) !=2:
+        print('Usage: density_across_grids_pointwise.py input.yaml')
+        exit(1)
+    #Read input
+    input_yaml_file = sys.argv[1]
+    parameters = parse_yaml(input_yaml_file)
+    iterate_solvents_and_probes(parameters)
