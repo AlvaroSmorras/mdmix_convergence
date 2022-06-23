@@ -10,6 +10,7 @@ import numpy as np
 import sys
 import os
 import pandas as pd
+import glob
 
 def parse_hotspots_from_pdb(file):
     # Cutre-function to parse the pdb with highest densities
@@ -55,7 +56,7 @@ def cluster_hotspots(hotspot_dict):
     cluster_indexes = [np.where((cmatrix == vect).all(axis=1))[0][0] for vect in cluster]
     cluster_d = {}
     for i, ci in enumerate(cluster_indexes):
-        cluster_d['Cluster '+str(i)] = {'coords':cluster[i], 'density':hotspot_dict[ci]['density']}
+        cluster_d['Cluster_'+str(i)] = {'coords':cluster[i], 'density':hotspot_dict[ci]['density']}
     return cluster_d
 
 def find_grid_value_at_coordinates(grid, coordinates):
@@ -65,7 +66,7 @@ def find_grid_value_at_coordinates(grid, coordinates):
         grid = Grid(grid)
     # transform coordinates to index
     xi, yi, zi = ( int((coordinates[i]-grid.origin[i])/grid.delta[i]//1) for i in range(3))
-    return g.grid[xi][yi][zi]
+    return grid.grid[xi][yi][zi]
 def density_in_grid_on_cluster_points(grid, cluster_d ):
     # If grid is the path to a grid, try to load it. If not, supose its a grid
     if type(grid) == str and os.path.isfile(grid):
@@ -76,25 +77,31 @@ def density_in_grid_on_cluster_points(grid, cluster_d ):
         densities[clust_name] = density
     return densities
 
-def table_initialization(grid_paths):
+def iterate_grids_and_clusters(grid_paths, clusters_d):
     # now I need this grid to be repeated n times, one for each cluster
     names = [x.split('/')[-1] for x in grid_paths]
-    replicas = sorted(list(set(['Replica '+x.split('_')[0] for x in names])))
-    replicas.remove('Replica full')
+    dgrid_dir = '/'.join(grid_paths[0].split('/')[:-1])
+    replicas = sorted(list(set(['Replica_'+x.split('_')[0] for x in names])))
+    replicas.remove('Replica_full-sampling')
     nanoseconds = sorted(list(set([int(x.split('_')[-1].split('.')[0]) for x in names])))
-    base_df = pd.DataFrame(index=replicas, columns=nanoseconds)
-    
+    base_df = pd.DataFrame(columns=nanoseconds)
     for name in names:
-        if name.startswith('full_sampling'):
-            full, lluf, solvent, probe, nanoseconds = name.split('_')
-            replica = replicas
+        grid = Grid('/'.join([dgrid_dir, name]))
+        if name.startswith('full-sampling'):
+            replica, solvent, probe, nanoseconds = name.split('_')
         else:
             replica, solvent, probe, sampling, nanoseconds = name.split('_')
-            replica = 'Replica '+replica
         nanoseconds = nanoseconds.split('.')[0]
-        base_df.loc[replica, int(nanoseconds)] = 0
-    print(base_df)
-    
+        cluster_densities = density_in_grid_on_cluster_points(grid, cluster_d)
+        for cluster_n, density in cluster_densities.items():
+            if name.startswith('full-sampling'):
+                n = ['-'.join([cluster_n,sampling,replica]) for replica in replicas]
+            else:
+                n= '-'.join([cluster_n,sampling,'Replica_%s'%replica])            
+            base_df.loc[n, int(nanoseconds)] = density
+
+    base_df.sort_index(inplace=True)
+    return base_df
 
 if __name__=='__main__':
     #sys.argv[1]
@@ -103,10 +110,10 @@ if __name__=='__main__':
     dgrids_folder = 'dgrids/SOCS1_AF/ETA/'
     ###
     
-    hotspots = parse_hotspots_from_pdb(dgrids_folder+'top_density_ETA_WAT.pdb')
+    hotspots = parse_hotspots_from_pdb(dgrids_folder+'top_density_ETA_CT.pdb')
     cluster_d = cluster_hotspots(hotspots)
-    g = Grid(dgrids_folder+'full_sampling_ETA_WAT_300.dx')
     #cluster_to_pseudoatoms(cluster_d)
-    import glob
-    grid_paths = glob.glob(dgrids_folder+'/*ETA_WAT*dx')
-    table_initialization(grid_paths)    
+    grid_paths = glob.glob(dgrids_folder+'/*ETA_CT*dx')
+    densities_dataframe = iterate_grids_and_clusters(grid_paths, cluster_d)
+    print(densities_dataframe)
+    densities_dataframe.to_csv('outputs/SOCS1_AF_ETA_CT.csv')

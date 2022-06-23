@@ -112,7 +112,7 @@ def write_cpptraj_files(parameters, files_to_sample, complete_sampling=False):
                                                                                 mask=mask))
             if complete_sampling:
                 all_trajs = flatten_list_of_lists(complete_sampling[solvent])
-                with open('/'.join([parameters['Sampling']['Output directory'],solvent,'full_sampling_'+str(len(all_trajs))+'.ptraj']), 'w') as out_file:
+                with open('/'.join([parameters['Sampling']['Output directory'],solvent,'full-sampling_'+str(len(all_trajs))+'.ptraj']), 'w') as out_file:
                     out_file.write('parm %s/%s\n'%(parameters['Data']['data directory'],parameters['Data']['topologies'][s_i]))
                     [out_file.write('trajin %s\n'%x) for x in all_trajs]
                     for probe, mask in parameters['Data'][solvent].items():
