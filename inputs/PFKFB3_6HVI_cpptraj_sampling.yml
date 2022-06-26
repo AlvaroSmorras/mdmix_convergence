@@ -24,7 +24,7 @@ Data:
     CLE:
       CL: :CLE@CL1
       OH: :CLE@O1
-      WAT: :PYR5@O
+      WAT: :WAT@O
 
 Sampling:
   - Cross replica: True

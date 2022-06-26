@@ -117,7 +117,7 @@ def write_cpptraj_files(parameters, files_to_sample, complete_sampling=False):
                     [out_file.write('trajin %s\n'%x) for x in all_trajs]
                     for probe, mask in parameters['Data'][solvent].items():
                         # A single readin of the trajectories will create all the probe grids, shoud I resample acroos probes too?
-                        out_file.write(grid_cmd_template_pdb.format(out_dxname='%s/%s/full_sampling_%s_%s_%s.dx'%(parameters['Sampling']['Output grids directory'], solvent,
+                        out_file.write(grid_cmd_template_pdb.format(out_dxname='%s/%s/full-sampling_%s_%s_%s.dx'%(parameters['Sampling']['Output grids directory'], solvent,
                                                                                 solvent, probe,str(len(all_trajs))),
                                                                             dx=parameters['Grid']['dx'],
                                                                             dy=parameters['Grid']['dy'],

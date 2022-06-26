@@ -122,7 +122,7 @@ def iterate_solvents_and_probes(parameters):
     for solvent in parameters['solvents']:
         dgrids_folder = parameters['input folder'] + solvent +'/'
         for probe in parameters[solvent]:
-            print('Working in %s_%s'%(solvent, probe))
+            print('Working on %s_%s'%(solvent, probe))
             hotspots_file = dgrids_folder+f'top_density_{solvent}_{probe}.pdb'
             hotspots = parse_hotspots_from_pdb(hotspots_file)
             cluster_d = cluster_hotspots(hotspots, distance_threshold=parameters['hotspot clustering distance threshold'])
