@@ -126,7 +126,7 @@ def iterate_solvents_and_probes(parameters):
             hotspots_file = dgrids_folder+f'top_density_{solvent}_{probe}.pdb'
             hotspots = parse_hotspots_from_pdb(hotspots_file)
             cluster_d = cluster_hotspots(hotspots, distance_threshold=parameters['hotspot clustering distance threshold'])
-            grid_paths = glob.glob(dgrids_folder+f'/*{solvent}_{probe}*dx')
+            grid_paths = sorted(glob.glob(dgrids_folder+f'/*{solvent}_{probe}*dx'))
             densities_dataframe = iterate_grids_and_clusters(grid_paths, cluster_d)
             densities_dataframe.to_csv(parameters['output directory']+parameters['output prefix']+f'_{solvent}_{probe}.csv')
 
