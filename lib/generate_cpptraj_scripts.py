@@ -66,7 +66,7 @@ def create_sampling(sampling_parameters, trajectory_files):
                     exit(1)
                 for partial_sample in partial_steps:
                     # Is no replace good? or i'm increasing the sampling artificially
-                    sample_files = [np.random.choice(merged_trajectory_pool, size=partial_sample, replace=False)
+                    sample_files = [np.random.choice(merged_trajectory_pool, size=partial_sample, replace=sampling_parameters['Replacement'])
                                                                     for mr in range(sampling_parameters['Meta-replicas'])]
                     r.setdefault(solvent, dict())['CrossR_'+str(partial_sample)] = sample_files
             if sampling_parameters['Intra replica']:  # Create separate pools for each replica, NOT YET TESTED

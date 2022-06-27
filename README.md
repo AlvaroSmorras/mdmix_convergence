@@ -64,14 +64,30 @@ Sampling:
   # Separate the replicas. To see how the densities evolve in time.
   # Ideally from Uniform distribution to concentrated hotspots.
   - Intra replica: False 
-  - Meta-replicas: 5
-  # Increasing the sampling to the max number of trajectories without replacement is redundant. 
-  - Sampling steps: [5, 10, 25, 50, 100, 150, 200, 250] 
+  - Meta-replicas: 10
+  - Sampling steps: [5, 10, 25, 50, 100, 150, 200, 250, 300]
+  - Replacement: True 
   - Output directory: inputs/SOCS1_AF
   - Output grids directory: dgrids/SOCS1_AF
 ```
 
-Once we have the input files, its time to launch cpptraj to obtain the files. The filesystem will have the following structure: inputs/{system}/{solvent}/{metareplica}\_{sampling_method}\_{nanoseconds}.ptraj
+Once we have the input files, its time to launch cpptraj to obtain the files. The filesystem will have the following structure:
+* cpptraj inputs in inputs/{system}/{solvent}/{metareplica}\_{sampling_method}\_{nanoseconds}.ptraj
+* density grids in dgrids/{system}/{solvent}/{metareplica}\_{sampling_method}\_{nanoseconds}.dx
+
+##### Cpptraj inputs to density grids
 ```{bash}
 for input in inputs/*/*/*ptraj; do cpptraj -i $input; done
 ```
+
+##### Density grids to energy grids (WIP)
+```{bash}
+```
+
+### Step 2. Obtaining energies in certain points to check convergence
+There are many options on how to check the convergence.
+IDEAS:
+- Check average discrepancy of dGB in each point across the grid.
+- Check energy in certain points (hotspots).
+      - Cpptraj have the option to return highest densities (>80\% (?)) we can use those.
+      - Too many points together in hotspots, use clustering 

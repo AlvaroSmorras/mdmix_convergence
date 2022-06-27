@@ -27,7 +27,8 @@ Data:
 Sampling:
   - Cross replica: True
   - Intra replica: False
-  - Meta-replicas: 5
-  - Sampling steps: [5, 10, 25, 50, 100, 150, 200, 300, 400, 500]
+  - Meta-replicas: 10
+  - Sampling steps: [5, 10, 25, 50, 100, 150, 200, 300, 400, 500, 600]
+  - Replacement: True
   - Output directory: inputs/p62-ZZ_6KHZ
   - Output grids directory: dgrids/p62-ZZ_6KHZ

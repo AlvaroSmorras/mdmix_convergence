@@ -26,7 +26,8 @@ Data:
 Sampling:
   - Cross replica: True
   - Intra replica: False
-  - Meta-replicas: 5
-  - Sampling steps: [5, 10, 25, 50, 100, 150, 200, 250]
+  - Meta-replicas: 10
+  - Sampling steps: [5, 10, 25, 50, 100, 150, 200, 250, 300]
+  - Replacement: True
   - Output directory: inputs/SOCS1_AF
   - Output grids directory: dgrids/SOCS1_AF
