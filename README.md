@@ -37,6 +37,7 @@ for input in inputs/*/*/*ptraj; do cpptraj -i $input; done
 
 ##### Density grids to energy grids (WIP)
 ```{bash}
+bash lib/all_dgrids2egrids.sh dgrids egrids
 ```
 
 ### Step 2. Obtaining energies in certain points to check convergence

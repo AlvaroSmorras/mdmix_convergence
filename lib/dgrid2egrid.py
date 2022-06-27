@@ -48,19 +48,12 @@ def load_and_sum_dgrid_files(dx_files):
     grids = []
     for dx_file in dx_files:
         grids.append(Grid(dx_file))
-    return grids[0] + grids[1] +grids[2]
+    return sum(grids)
 
 
 if __name__ == '__main__':
-    if len(sys.argv) == 5:
-        dgrid1_file = sys.argv[1]
-        dgrid2_file = sys.argv[2]
-        dgrid3_file = sys.argv[3]
-        egrid_file = sys.argv[4]
-    else:
-        print('Usage: dgrd2egrid.py dgrid1.dx dgrid2.dx dgrid3.dx output_egrid.dx')
-        exit(1)
-
-    xyz_list, counts_list, solvent_accesible_gridpoints, sum_grid = info_from_dx([dgrid1_file, dgrid2_file,dgrid3_file])
+    dgrid_files = [sys.argv[x] for x in range(1, len(sys.argv)-1)]
+    egrid_file = sys.argv[-1]
+    xyz_list, counts_list, solvent_accesible_gridpoints, sum_grid = info_from_dx(dgrid_files)
     expected_counts = sum(counts_list)/solvent_accesible_gridpoints
     dgrid2egrid(sum_grid, expected_counts = expected_counts, out_grid = egrid_file)
