@@ -1,6 +1,6 @@
 # Input for calculating density across grids in hotspots
 ---
-input folder: dgrids/p62-ZZ_6KHZ/
+input folder: egrids/p62-ZZ_6KHZ/
 solvents: [ETA, ION5, WAT]
 ETA: [CT, OH, WAT]
 ION5: [POS, NEG, WAT]

@@ -1,6 +1,6 @@
 # Input for calculating density across grids in hotspots
 ---
-input folder: dgrids/SOCS1_AF/
+input folder: egrids/SOCS1_AF/
 solvents: [ETA, MAM]
 ETA: [CT, OH, WAT]
 MAM: [CT, O, N, WAT]

@@ -1,6 +1,6 @@
 # Input for calculating density across grids in hotspots
 ---
-input folder: dgrids/PFKFB3_6HVI/
+input folder: egrids/PFKFB3_6HVI/
 solvents: [ETA, CLE, PYR5]
 ETA: [CT, OH, WAT]
 CLE: [CL, OH, WAT]

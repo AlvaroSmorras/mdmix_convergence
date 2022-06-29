@@ -88,22 +88,23 @@ def iterate_grids_and_clusters(grid_paths, cluster_d):
     dgrid_dir = '/'.join(grid_paths[0].split('/')[:-1])
     replicas = sorted(list(set(['Replica_'+x.split('_')[0] for x in names])))
     replicas.remove('Replica_full-sampling')
-    nanoseconds = sorted(list(set([int(x.split('_')[-1].split('.')[0]) for x in names])))
+    nanoseconds = sorted(list(set([str(x.split('_')[-1].split('.')[0]) for x in names])))+['full-sampling']
     base_df = pd.DataFrame(columns=nanoseconds)
     for name in names:
         grid = Grid('/'.join([dgrid_dir, name]))
         if name.startswith('full-sampling'):
             replica, solvent, probe, nanoseconds = name.split('_')
+            nanoseconds = 'full-sampling'
         else:
             replica, solvent, probe, sampling, nanoseconds = name.split('_')
         nanoseconds = nanoseconds.split('.')[0]
         cluster_densities = density_in_grid_on_cluster_points(grid, cluster_d)
         for cluster_n, density in cluster_densities.items():
             if name.startswith('full-sampling'):
-                n = ['-'.join([cluster_n,sampling,replica]) for replica in replicas]
+                row_name = ['-'.join([cluster_n,sampling,replica]) for replica in replicas]
             else:
-                n= '-'.join([cluster_n,sampling,'Replica_%s'%replica])            
-            base_df.loc[n, int(nanoseconds)] = density
+                row_name = '-'.join([cluster_n,sampling,'Replica_%s'%replica])            
+            base_df.loc[row_name, nanoseconds] = density
 
     base_df.sort_index(inplace=True)
     return base_df
