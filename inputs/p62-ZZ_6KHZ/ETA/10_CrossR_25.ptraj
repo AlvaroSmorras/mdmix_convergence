@@ -1,0 +1,29 @@
+parm raw_data/p62-ZZ_6KHZ/p62-ZZ_6KHZ_ETA.prmtop
+trajin raw_data/p62-ZZ_6KHZ/ETA_2/md169.nc
+trajin raw_data/p62-ZZ_6KHZ/ETA_2/md88.nc
+trajin raw_data/p62-ZZ_6KHZ/ETA_3/md1.nc
+trajin raw_data/p62-ZZ_6KHZ/ETA_2/md4.nc
+trajin raw_data/p62-ZZ_6KHZ/ETA_2/md181.nc
+trajin raw_data/p62-ZZ_6KHZ/ETA_2/md14.nc
+trajin raw_data/p62-ZZ_6KHZ/ETA_1/md73.nc
+trajin raw_data/p62-ZZ_6KHZ/ETA_1/md7.nc
+trajin raw_data/p62-ZZ_6KHZ/ETA_1/md53.nc
+trajin raw_data/p62-ZZ_6KHZ/ETA_3/md103.nc
+trajin raw_data/p62-ZZ_6KHZ/ETA_1/md199.nc
+trajin raw_data/p62-ZZ_6KHZ/ETA_2/md46.nc
+trajin raw_data/p62-ZZ_6KHZ/ETA_3/md129.nc
+trajin raw_data/p62-ZZ_6KHZ/ETA_3/md58.nc
+trajin raw_data/p62-ZZ_6KHZ/ETA_2/md86.nc
+trajin raw_data/p62-ZZ_6KHZ/ETA_3/md133.nc
+trajin raw_data/p62-ZZ_6KHZ/ETA_2/md24.nc
+trajin raw_data/p62-ZZ_6KHZ/ETA_3/md86.nc
+trajin raw_data/p62-ZZ_6KHZ/ETA_2/md29.nc
+trajin raw_data/p62-ZZ_6KHZ/ETA_1/md103.nc
+trajin raw_data/p62-ZZ_6KHZ/ETA_1/md167.nc
+trajin raw_data/p62-ZZ_6KHZ/ETA_1/md110.nc
+trajin raw_data/p62-ZZ_6KHZ/ETA_1/md24.nc
+trajin raw_data/p62-ZZ_6KHZ/ETA_2/md75.nc
+trajin raw_data/p62-ZZ_6KHZ/ETA_3/md109.nc
+grid dgrids/p62-ZZ_6KHZ/ETA/10_ETA_CT_CrossR_25.dx 110 0.5 110 0.5 110 0.5 gridcenter 6.5 3.0 11.5 :ETA@C1 normframe
+grid dgrids/p62-ZZ_6KHZ/ETA/10_ETA_OH_CrossR_25.dx 110 0.5 110 0.5 110 0.5 gridcenter 6.5 3.0 11.5 :ETA@O1 normframe
+grid dgrids/p62-ZZ_6KHZ/ETA/10_ETA_WAT_CrossR_25.dx 110 0.5 110 0.5 110 0.5 gridcenter 6.5 3.0 11.5 :WAT@O normframe

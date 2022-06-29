@@ -120,13 +120,13 @@ def parse_yaml(yaml_input):
 def iterate_solvents_and_probes(parameters):
     mkdir_if_missing(parameters['output directory'])
     for solvent in parameters['solvents']:
-        dgrids_folder = parameters['input folder'] + solvent +'/'
+        grids_folder = parameters['input folder'] + solvent +'/'
         for probe in parameters[solvent]:
             print('Working on %s_%s'%(solvent, probe))
-            hotspots_file = dgrids_folder+f'top_density_{solvent}_{probe}.pdb'
+            hotspots_file = grids_folder+f'top_density_{solvent}_{probe}.pdb'
             hotspots = parse_hotspots_from_pdb(hotspots_file)
             cluster_d = cluster_hotspots(hotspots, distance_threshold=parameters['hotspot clustering distance threshold'])
-            grid_paths = sorted(glob.glob(dgrids_folder+f'/*{solvent}_{probe}*dx'))
+            grid_paths = sorted(glob.glob(grids_folder+f'/*{solvent}_{probe}*dx'))
             densities_dataframe = iterate_grids_and_clusters(grid_paths, cluster_d)
             densities_dataframe.to_csv(parameters['output directory']+parameters['output prefix']+f'_{solvent}_{probe}.csv')
 

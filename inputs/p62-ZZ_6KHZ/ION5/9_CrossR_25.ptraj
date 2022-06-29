@@ -1,0 +1,29 @@
+parm raw_data/p62-ZZ_6KHZ/p62-ZZ_6KHZ_ION5.prmtop
+trajin raw_data/p62-ZZ_6KHZ/ION5_2/md24.nc
+trajin raw_data/p62-ZZ_6KHZ/ION5_2/md91.nc
+trajin raw_data/p62-ZZ_6KHZ/ION5_3/md162.nc
+trajin raw_data/p62-ZZ_6KHZ/ION5_1/md22.nc
+trajin raw_data/p62-ZZ_6KHZ/ION5_1/md46.nc
+trajin raw_data/p62-ZZ_6KHZ/ION5_2/md106.nc
+trajin raw_data/p62-ZZ_6KHZ/ION5_1/md151.nc
+trajin raw_data/p62-ZZ_6KHZ/ION5_2/md59.nc
+trajin raw_data/p62-ZZ_6KHZ/ION5_3/md1.nc
+trajin raw_data/p62-ZZ_6KHZ/ION5_3/md143.nc
+trajin raw_data/p62-ZZ_6KHZ/ION5_2/md3.nc
+trajin raw_data/p62-ZZ_6KHZ/ION5_2/md18.nc
+trajin raw_data/p62-ZZ_6KHZ/ION5_1/md62.nc
+trajin raw_data/p62-ZZ_6KHZ/ION5_2/md39.nc
+trajin raw_data/p62-ZZ_6KHZ/ION5_3/md95.nc
+trajin raw_data/p62-ZZ_6KHZ/ION5_1/md125.nc
+trajin raw_data/p62-ZZ_6KHZ/ION5_1/md153.nc
+trajin raw_data/p62-ZZ_6KHZ/ION5_1/md155.nc
+trajin raw_data/p62-ZZ_6KHZ/ION5_2/md31.nc
+trajin raw_data/p62-ZZ_6KHZ/ION5_2/md53.nc
+trajin raw_data/p62-ZZ_6KHZ/ION5_2/md97.nc
+trajin raw_data/p62-ZZ_6KHZ/ION5_1/md101.nc
+trajin raw_data/p62-ZZ_6KHZ/ION5_3/md158.nc
+trajin raw_data/p62-ZZ_6KHZ/ION5_1/md30.nc
+trajin raw_data/p62-ZZ_6KHZ/ION5_1/md117.nc
+grid dgrids/p62-ZZ_6KHZ/ION5/9_ION5_NEG_CrossR_25.dx 110 0.5 110 0.5 110 0.5 gridcenter 6.5 3.0 11.5 :COO@O1,O2 normframe
+grid dgrids/p62-ZZ_6KHZ/ION5/9_ION5_POS_CrossR_25.dx 110 0.5 110 0.5 110 0.5 gridcenter 6.5 3.0 11.5 :CN3@N1 normframe
+grid dgrids/p62-ZZ_6KHZ/ION5/9_ION5_WAT_CrossR_25.dx 110 0.5 110 0.5 110 0.5 gridcenter 6.5 3.0 11.5 :WAT@O normframe

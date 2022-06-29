@@ -38,11 +38,11 @@ def dgrid2egrid(g, out_grid, expected_counts):
                 for zi in range(g.grid.shape[2]):
                     count = g.grid[xi][yi][zi]
                     if count == 0:
-                        fenergy = 999
+                        fenergy = '999'
                     else:
-                        fenergy = -kb*T*log(count/expected_counts)
+                        fenergy = round(-kb*T*log(count/expected_counts),6)
                     g.grid[xi][yi][zi] = fenergy
-    g.export(out_grid)
+    g.export(out_grid, type='float')
 
 def load_and_sum_dgrid_files(dx_files):
     grids = []

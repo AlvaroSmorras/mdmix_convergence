@@ -1,9 +1,9 @@
 parm raw_data/PFKFB3_6HVI/PFKFB3_6HVI_CLE.prmtop
-trajin raw_data/PFKFB3_6HVI/CLE_2/md64.nc
-trajin raw_data/PFKFB3_6HVI/CLE_3/md28.nc
-trajin raw_data/PFKFB3_6HVI/CLE_2/md2.nc
-trajin raw_data/PFKFB3_6HVI/CLE_1/md69.nc
-trajin raw_data/PFKFB3_6HVI/CLE_2/md67.nc
+trajin raw_data/PFKFB3_6HVI/CLE_1/md48.nc
+trajin raw_data/PFKFB3_6HVI/CLE_2/md44.nc
+trajin raw_data/PFKFB3_6HVI/CLE_2/md52.nc
+trajin raw_data/PFKFB3_6HVI/CLE_3/md83.nc
+trajin raw_data/PFKFB3_6HVI/CLE_3/md74.nc
 grid dgrids/PFKFB3_6HVI/CLE/3_CLE_CL_CrossR_5.dx 228 0.5 228 0.5 228 0.5 gridcenter 82.0 58.5 264.5 :CLE@CL1 normframe
 grid dgrids/PFKFB3_6HVI/CLE/3_CLE_OH_CrossR_5.dx 228 0.5 228 0.5 228 0.5 gridcenter 82.0 58.5 264.5 :CLE@O1 normframe
 grid dgrids/PFKFB3_6HVI/CLE/3_CLE_WAT_CrossR_5.dx 228 0.5 228 0.5 228 0.5 gridcenter 82.0 58.5 264.5 :WAT@O normframe

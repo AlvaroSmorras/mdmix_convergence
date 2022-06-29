@@ -1,0 +1,9 @@
+parm raw_data/PFKFB3_6HVI/PFKFB3_6HVI_PYR5.prmtop
+trajin raw_data/PFKFB3_6HVI/PYR5_2/md91.nc
+trajin raw_data/PFKFB3_6HVI/PYR5_2/md24.nc
+trajin raw_data/PFKFB3_6HVI/PYR5_2/md53.nc
+trajin raw_data/PFKFB3_6HVI/PYR5_1/md8.nc
+trajin raw_data/PFKFB3_6HVI/PYR5_2/md90.nc
+grid dgrids/PFKFB3_6HVI/PYR5/9_PYR5_CA_CrossR_5.dx 228 0.5 228 0.5 228 0.5 gridcenter 82.0 58.5 264.5 :PYR@C1,C2,C3,C4,C5 normframe
+grid dgrids/PFKFB3_6HVI/PYR5/9_PYR5_N_CrossR_5.dx 228 0.5 228 0.5 228 0.5 gridcenter 82.0 58.5 264.5 :PYR@N1 normframe
+grid dgrids/PFKFB3_6HVI/PYR5/9_PYR5_WAT_CrossR_5.dx 228 0.5 228 0.5 228 0.5 gridcenter 82.0 58.5 264.5 :WAT@O normframe
