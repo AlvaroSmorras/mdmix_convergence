@@ -31,11 +31,6 @@ def parse_hotspots_from_pdb(file):
     d.sort(key=lambda x:x['density'], reverse=True)
     return d
 
-def cluster_to_pseudoatoms(cluster_d):
-    # Auxiliary function to print the pymol command to create pseudo atoms from the clusters (just to visulize)
-    for name, v in cluster_d.items():
-        print('pseudoatom %s, pos=[%s, %s, %s]' %(name, v['coords'][0], v['coords'][1], v['coords'][2]))
-
 def cluster_data_KDTree(a, thr=0.1):
     # function from internet to cluster using a kdetree
     # https://stackoverflow.com/questions/49953817/cluster-data-based-on-distance-threshold
@@ -83,16 +78,21 @@ def density_in_grid_on_cluster_points(grid, cluster_d ):
     return densities
 
 def iterate_grids_and_clusters(grid_paths, cluster_d):
-    # now I need this grid to be repeated n times, one for each cluster
+    # Main function to look for grid values corresponding to clusters
+
+    # Parsing variables and initializing base dataframe
     names = [x.split('/')[-1] for x in grid_paths]
     dgrid_dir = '/'.join(grid_paths[0].split('/')[:-1])
     replicas = sorted(list(set(['Replica_'+x.split('_')[0] for x in names])))
     replicas.remove('Replica_full-sampling')
     nanoseconds = sorted(list(set([str(x.split('_')[-1].split('.')[0]) for x in names])))+['full-sampling']
     base_df = pd.DataFrame(columns=nanoseconds)
+
+    # External loop will be grids, as they take the most time to read
     for name in names:
+        # full-sampling is a special case as it has no replicas and will fill a whole column
         grid = Grid('/'.join([dgrid_dir, name]))
-        if name.startswith('full-sampling'):
+        if name.startswith('full-sampling'): 
             replica, solvent, probe, nanoseconds = name.split('_')
             nanoseconds = 'full-sampling'
         else:
@@ -100,12 +100,14 @@ def iterate_grids_and_clusters(grid_paths, cluster_d):
         nanoseconds = nanoseconds.split('.')[0]
         cluster_densities = density_in_grid_on_cluster_points(grid, cluster_d)
         for cluster_n, density in cluster_densities.items():
-            if name.startswith('full-sampling'):
+            # again full-sampling being special
+            if name.startswith('full-sampling'): 
                 row_name = ['-'.join([cluster_n,sampling,replica]) for replica in replicas]
             else:
-                row_name = '-'.join([cluster_n,sampling,'Replica_%s'%replica])            
+                row_name = '-'.join([cluster_n,sampling,'Replica_%s'%replica])
+            # fill dataframe with data            
             base_df.loc[row_name, nanoseconds] = density
-
+    # Comodity to have things sorted by cluster
     base_df.sort_index(inplace=True)
     return base_df
 
@@ -137,7 +139,7 @@ def iterate_solvents_and_probes(parameters):
 if __name__=='__main__':
         #Check usage
     if len(sys.argv) !=2:
-        print('Usage: density_across_grids_pointwise.py input.yaml')
+        print(f'Usage: {sys.argv[0]} input.yaml')
         exit(1)
     #Read input
     input_yaml_file = sys.argv[1]

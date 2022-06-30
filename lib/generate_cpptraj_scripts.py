@@ -130,7 +130,7 @@ def write_cpptraj_files(parameters, files_to_sample, complete_sampling=False):
 if __name__ == '__main__':
     #Check usage
     if len(sys.argv) !=2:
-        print('Usage: generate_cpptraj_scripts.py input.yaml')
+        print(f'Usage: {sys.argv[0]} input.yaml')
         exit(1)
     #Read input
     yaml_input = sys.argv[1]

@@ -1,0 +1,5 @@
+pseudoatom Cluster_0, pos=[72.75, 54.75, 285.75]
+pseudoatom Cluster_1, pos=[110.75, 59.75, 260.75]
+pseudoatom Cluster_2, pos=[69.25, 44.75, 281.25]
+pseudoatom Cluster_3, pos=[105.25, 66.75, 262.75]
+pseudoatom Cluster_4, pos=[77.75, 68.75, 262.75]
