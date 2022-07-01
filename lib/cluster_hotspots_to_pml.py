@@ -35,7 +35,7 @@ def cluster_hotspots(hotspot_dict, distance_threshold):
         cluster_d['Cluster_'+str(i)] = {'coords':cluster[i], 'density':hotspot_dict[ci]['density']}
     return cluster_d
 
-def parse_hotspots_from_pdb(file):
+def parse_hotspots_from_pdb(file, density_threshold = 0.8):
     # Cutre-function to parse the pdb with highest densities
     # Will crash if coordinates are very big and columns merge
     d = []
@@ -44,19 +44,23 @@ def parse_hotspots_from_pdb(file):
             if line.startswith('ATOM'):
                 line = line.strip().split()
                 atomi, x, y, z, density = line[1], line[5], line[6], line[7], line[8]
-                d.append({'coords':np.array([float(x), float(y), float(z)]), 'density':density})
+                if float(density) >= density_threshold: # filter-out densities lower than threshold
+                    d.append({'coords':np.array([float(x), float(y), float(z)]), 'density':density})
     # sorting them by density so the cluster representative is chosen based on that
     d.sort(key=lambda x:x['density'], reverse=True)
     return d
-
+def parse_args():
+    import argparse
+    parser = argparse.ArgumentParser(description='Take cpptraj density pdb and return clustered points for pymol visualization')
+    parser.add_argument('-H', type=str, help='cpptraj pdb output from density calculation', required=True)
+    parser.add_argument('-dist', type=float, help='Distance threshold to cluster the hotspots. Default: 2.0 A', nargs='?', const=2)
+    parser.add_argument('-dens', type=float,help='Minumum density threshold to select hotspots. Default: 0.8', nargs='?', const=0.8)
+    parser.add_argument('-out', type=str, help='Output pymol script for visualization', required=True)
+    args = parser.parse_args()
+    return args
 if __name__=='__main__':
-    if len(sys.argv) != 4:
-        print(f'usage: {sys.argv[0]} hotspots.pdb distance_threshold pymol_script.pml')
-        exit(1)
-    hotspots_pdb = sys.argv[1]
-    distance_threshold = sys.argv[2]
-    output_pml = sys.argv[3]
+    args = parse_args()
 
-    hotspots_dict = parse_hotspots_from_pdb(hotspots_pdb)
-    clusters = cluster_hotspots(hotspots_dict, distance_threshold)
-    cluster_to_pseudoatoms(clusters, output_pml)
+    hotspots_dict = parse_hotspots_from_pdb(args.H, args.dens)
+    clusters = cluster_hotspots(hotspots_dict, args.dist)
+    cluster_to_pseudoatoms(clusters, args.out)

@@ -8,3 +8,5 @@ WAT: [WAT]
 hotspot clustering distance threshold: 2
 output directory: outputs/p62-ZZ_6KHZ/
 output prefix: p62-ZZ_6KHZ
+minimum hotspot density: 0.8
+

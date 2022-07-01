@@ -82,7 +82,7 @@ def write_cpptraj_files(parameters, files_to_sample, complete_sampling=False):
     # Main loop function to write the cpptraj input files 
     # template to format, do we want to normalize? Check!
     grid_cmd_template = 'grid {out_dxname} {dx} {delta} {dy} {delta} {dz} {delta} gridcenter {center_coords} {mask} normframe\n' 
-    grid_cmd_template_pdb = 'grid {out_dxname} {dx} {delta} {dy} {delta} {dz} {delta} gridcenter {center_coords} {mask} normframe pdb {pdb_name}\n' 
+    grid_cmd_template_pdb = 'grid {out_dxname} {dx} {delta} {dy} {delta} {dz} {delta} gridcenter {center_coords} {mask} normframe pdb {pdb_name} max {density_threshold}\n' 
     
     mkdir_if_missing(parameters['Sampling']['Output directory'])
     # cpptraj needs the grid center, so if input has only origin, we can calculate the center
@@ -125,7 +125,8 @@ def write_cpptraj_files(parameters, files_to_sample, complete_sampling=False):
                                                                             delta=parameters['Grid']['delta'],
                                                                             center_coords=parameters['Grid']['coordinates center'],
                                                                             mask=mask,
-                                                                            pdb_name='%s/%s/top_density_%s_%s.pdb'%(parameters['Sampling']['Output grids directory'], solvent,solvent, probe)))
+                                                                            pdb_name='%s/%s/top_density_%s_%s.pdb'%(parameters['Sampling']['Output grids directory'],solvent,solvent, probe),
+                                                                            density_threshold=parameters['Sampling']['PDB_density_threshold']))
 
 if __name__ == '__main__':
     #Check usage

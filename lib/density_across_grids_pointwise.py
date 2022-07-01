@@ -17,7 +17,7 @@ def mkdir_if_missing(dir):
     # Auxiliar function to create directories
     if not os.path.isdir(dir): os.mkdir(dir)
 
-def parse_hotspots_from_pdb(file):
+def parse_hotspots_from_pdb(file, density_threshold):
     # Cutre-function to parse the pdb with highest densities
     # Will crash if coordinates are very big and columns merge
     d = []
@@ -26,7 +26,8 @@ def parse_hotspots_from_pdb(file):
             if line.startswith('ATOM'):
                 line = line.strip().split()
                 atomi, x, y, z, density = line[1], line[5], line[6], line[7], line[8]
-                d.append({'coords':np.array([float(x), float(y), float(z)]), 'density':density})
+                if float(density) >= density_threshold: # filter-out densities lower than threshold
+                    d.append({'coords':np.array([float(x), float(y), float(z)]), 'density':density})
     # sorting them by density so the cluster representative is chosen based on that
     d.sort(key=lambda x:x['density'], reverse=True)
     return d
@@ -127,7 +128,7 @@ def iterate_solvents_and_probes(parameters):
         for probe in parameters[solvent]:
             print('Working on %s_%s'%(solvent, probe))
             hotspots_file = grids_folder+f'top_density_{solvent}_{probe}.pdb'
-            hotspots = parse_hotspots_from_pdb(hotspots_file)
+            hotspots = parse_hotspots_from_pdb(hotspots_file, parameters['minimum hotspot density'])
             cluster_d = cluster_hotspots(hotspots, distance_threshold=parameters['hotspot clustering distance threshold'])
             grid_paths = sorted(glob.glob(grids_folder+f'/*{solvent}_{probe}*dx'))
             densities_dataframe = iterate_grids_and_clusters(grid_paths, cluster_d)

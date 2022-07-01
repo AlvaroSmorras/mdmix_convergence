@@ -32,3 +32,5 @@ Sampling:
   - Replacement: True
   - Output directory: inputs/p62-ZZ_6KHZ
   - Output grids directory: dgrids/p62-ZZ_6KHZ
+  - PDB_density_threshold: 0.5
+

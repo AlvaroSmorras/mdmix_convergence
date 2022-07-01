@@ -31,3 +31,5 @@ Sampling:
   - Replacement: True
   - Output directory: inputs/SOCS1_AF
   - Output grids directory: dgrids/SOCS1_AF
+  - PDB_density_threshold: 0.5
+

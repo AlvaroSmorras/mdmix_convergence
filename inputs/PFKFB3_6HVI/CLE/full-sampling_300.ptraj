@@ -299,6 +299,6 @@ trajin raw_data/PFKFB3_6HVI/CLE_3/md97.nc
 trajin raw_data/PFKFB3_6HVI/CLE_3/md98.nc
 trajin raw_data/PFKFB3_6HVI/CLE_3/md99.nc
 trajin raw_data/PFKFB3_6HVI/CLE_3/md100.nc
-grid dgrids/PFKFB3_6HVI/CLE/full-sampling_CLE_CL_300.dx 228 0.5 228 0.5 228 0.5 gridcenter 82.0 58.5 264.5 :CLE@CL1 normframe pdb dgrids/PFKFB3_6HVI/CLE/top_density_CLE_CL.pdb
-grid dgrids/PFKFB3_6HVI/CLE/full-sampling_CLE_OH_300.dx 228 0.5 228 0.5 228 0.5 gridcenter 82.0 58.5 264.5 :CLE@O1 normframe pdb dgrids/PFKFB3_6HVI/CLE/top_density_CLE_OH.pdb
-grid dgrids/PFKFB3_6HVI/CLE/full-sampling_CLE_WAT_300.dx 228 0.5 228 0.5 228 0.5 gridcenter 82.0 58.5 264.5 :WAT@O normframe pdb dgrids/PFKFB3_6HVI/CLE/top_density_CLE_WAT.pdb
+grid dgrids/PFKFB3_6HVI/CLE/full-sampling_CLE_CL_300.dx 228 0.5 228 0.5 228 0.5 gridcenter 82.0 58.5 264.5 :CLE@CL1 normframe pdb dgrids/PFKFB3_6HVI/CLE/top_density_CLE_CL.pdb max 0.5
+grid dgrids/PFKFB3_6HVI/CLE/full-sampling_CLE_OH_300.dx 228 0.5 228 0.5 228 0.5 gridcenter 82.0 58.5 264.5 :CLE@O1 normframe pdb dgrids/PFKFB3_6HVI/CLE/top_density_CLE_OH.pdb max 0.5
+grid dgrids/PFKFB3_6HVI/CLE/full-sampling_CLE_WAT_300.dx 228 0.5 228 0.5 228 0.5 gridcenter 82.0 58.5 264.5 :WAT@O normframe pdb dgrids/PFKFB3_6HVI/CLE/top_density_CLE_WAT.pdb max 0.5

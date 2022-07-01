@@ -8,3 +8,5 @@ PYR5: [CA, N, WAT]
 hotspot clustering distance threshold: 2
 output directory: outputs/PFKFB3_6HVI/
 output prefix: PFKFB3_6HVI
+minimum hotspot density: 0.8
+

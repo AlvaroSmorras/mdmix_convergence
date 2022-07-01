@@ -34,3 +34,4 @@ Sampling:
   - Replacement: True
   - Output directory: inputs/PFKFB3_6HVI
   - Output grids directory: dgrids/PFKFB3_6HVI
+  - PDB_density_threshold: 0.5
