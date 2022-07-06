@@ -17,10 +17,14 @@ def cluster_data_KDTree(a, thr=0.1):
     return a[mask]
 
 def cluster_to_pseudoatoms(cluster_d, outfile):
-    with open(outfile, 'w') as fh:
-        # Auxiliary function to print the pymol command to create pseudo atoms from the clusters (just to visulize)
-        for name, v in cluster_d.items():
-            fh.write(f"pseudoatom {name}, pos=[{v['coords'][0]}, {v['coords'][1]}, {v['coords'][2]}]\n")
+    if type(outfile) == str:
+        fh = open(outfile, 'w')
+    else:
+        fh = outfile
+    # Auxiliary function to print the pymol command to create pseudo atoms from the clusters (just to visulize)
+    for name, v in cluster_d.items():
+        fh.write(f"pseudoatom {name}, pos=[{v['coords'][0]}, {v['coords'][1]}, {v['coords'][2]}], b=v['density']\n")
+    fh.close()
 
 def cluster_hotspots(hotspot_dict, distance_threshold):
     # function to cluster the hotspots based on distance and to recover them formated
@@ -53,9 +57,9 @@ def parse_args():
     import argparse
     parser = argparse.ArgumentParser(description='Take cpptraj density pdb and return clustered points for pymol visualization')
     parser.add_argument('-H', type=str, help='cpptraj pdb output from density calculation', required=True)
-    parser.add_argument('-dist', type=float, help='Distance threshold to cluster the hotspots. Default: 2.0 A', nargs='?', const=2)
-    parser.add_argument('-dens', type=float,help='Minumum density threshold to select hotspots. Default: 0.8', nargs='?', const=0.8)
-    parser.add_argument('-out', type=str, help='Output pymol script for visualization', required=True)
+    parser.add_argument('-dist', type=float, help='Distance threshold to cluster the hotspots. Default: 2.0 A', nargs='?', default=2)
+    parser.add_argument('-dens', type=float,help='Minumum density threshold to select hotspots. Default: 0.8', nargs='?', default=0.8)
+    parser.add_argument('-out', help='Output pymol script for visualization', nargs='?', default=sys.stdout)
     args = parser.parse_args()
     return args
 if __name__=='__main__':
