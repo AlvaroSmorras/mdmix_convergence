@@ -23,7 +23,7 @@ def cluster_to_pseudoatoms(cluster_d, outfile):
         fh = outfile
     # Auxiliary function to print the pymol command to create pseudo atoms from the clusters (just to visulize)
     for name, v in cluster_d.items():
-        fh.write(f"pseudoatom {name}, pos=[{v['coords'][0]}, {v['coords'][1]}, {v['coords'][2]}], b=v['density']\n")
+        fh.write(f"pseudoatom {name}, pos=[{v['coords'][0]}, {v['coords'][1]}, {v['coords'][2]}], b={v['density']}\n")
     fh.close()
 
 def cluster_hotspots(hotspot_dict, distance_threshold):

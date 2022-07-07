@@ -7,4 +7,4 @@ MAM: [CT, O, N, WAT]
 hotspot clustering distance threshold: 2
 output directory: outputs/SOCS1_AF/
 output prefix: SOCS1_AF
-minimum hotspot density: 0.8
+minimum hotspot density: 0.5
